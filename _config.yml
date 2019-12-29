@@ -11,7 +11,7 @@ logo: # filename of a logo image that has been placed into your images directory
 # Enter the following platform usernames if you would like for them to appear on your site.
 owner:
   name: Ted Laderas
-  avatar: ![](img/ds-sq.jpg)
+  avatar: "img/ds-sq.jpg"
   bio: "WIP"
   email: erwe@gmail.com
   # Do not include the @ symbol in your Twitter username
