@@ -1,28 +1,11 @@
-theme: jekyll-theme-minimal
-
-# site settings
-locale  : "en-US"
-title   : "Dan Tran Portfolio"
-title_seperator : "-"
+title: Dan Tran Portfolio # your name (or website title) here
+logo: "/images/ds-sq.jpg?raw=true" # your photo (or logo) here
+description: > # your text below (remove <br> elements if you don't need line breaks)
+  First description
+  <br><br>
+  Second description
+  <br><br>
+  <a href="https://www.linkedin.com/in/example/">View My LinkedIn Profile</a>
 name    : "Dan Tran"
-description   : "Data Science Porfolio"
-logo: # filename of a logo image that has been placed into your images directory
 
-# Enter the following platform usernames if you would like for them to appear on your site.
-owner:
-  name: Ted Laderas
-  avatar: "img/ds-sq.jpg"
-  bio: "WIP"
-  email: erwe@gmail.com
-  # Do not include the @ symbol in your Twitter username
-  #twitter: laderast
-  linkedin: #username
-  #github: laderast
-  orcid: # ID Number (ex. 0000-0000-0000-0000)
-  researchgate: #username
-  mendeley: #username
-  google:
-    plus: #username
-    analytics:
-    verify:
-    scholar: #id
+theme: jekyll-theme-minimal
