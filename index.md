@@ -12,7 +12,8 @@
 
 ### Category Name 2
 
-- [Project 1 Title](http://example.com/)
+- [Project 1 Title](/projects/pj2.md)
+- [Project 2 Title](/pj3)
 
 
 ---
