@@ -2,7 +2,27 @@ theme: jekyll-theme-minimal
 
 # site settings
 locale  : "en-US"
-title   : "Dan Tran"
+title   : "Dan Tran Portfolio"
 title_seperator : "-"
 name    : "Dan Tran"
 description   : "Data Science Porfolio"
+logo: # filename of a logo image that has been placed into your images directory
+
+# Enter the following platform usernames if you would like for them to appear on your site.
+owner:
+  name: Ted Laderas
+  avatar: img/ds-sq.jpeg
+  bio: "WIP"
+  email: @gmail
+  # Do not include the @ symbol in your Twitter username
+  #twitter: laderast
+  linkedin: #username
+  #github: laderast
+  orcid: # ID Number (ex. 0000-0000-0000-0000)
+  researchgate: #username
+  mendeley: #username
+  google:
+    plus: #username
+    analytics:
+    verify:
+    scholar: #id
