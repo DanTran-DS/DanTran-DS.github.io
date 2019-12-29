@@ -1,1 +1,8 @@
 theme: jekyll-theme-minimal
+
+# site settings
+locale  : "en-US"
+title   : "Dan Tran"
+title_seperator : "-"
+name    : "Dan Tran"
+description   : "Data Science Porfolio"
