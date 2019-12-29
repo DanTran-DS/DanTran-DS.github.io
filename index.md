@@ -6,7 +6,7 @@
 
 ### Category Name 1
 
-[Do Managers Pick Favorite Analysts?](/projects/management-analysts)
+[Do Managers Pick Favorite Analysts?](/_projects/management-analysts)
 <img src="img/ds-img.jpg?raw=true"/>
 
 
