@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 title: Twitter NLP
 excerpt: "Twitter NLP with LSTM"
 tags: [intro, beginner, twitter, tutorial]
