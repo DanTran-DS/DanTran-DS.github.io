@@ -1,9 +1,17 @@
-
+---
+layout: single
+title: Twitter NLP
+excerpt: "Twitter NLP with LSTM"
+tags: [intro, beginner, twitter, tutorial]
+comments: true
+category: blog
+toc: true
+---
 
 ```python
 # This Python 3 environment comes with many helpful analytics libraries installed
 # It is defined by the kaggle/python docker image: https://github.com/kaggle/docker-python
-# For example, here's several helpful packages to load in 
+# For example, here's several helpful packages to load in
 
 import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
@@ -26,7 +34,7 @@ for dirname, _, filenames in os.walk('/kaggle/input'):
     /kaggle/input/nlp-getting-started/train.csv
     /kaggle/input/nlp-getting-started/sample_submission.csv
     /kaggle/input/nlp-getting-started/test.csv
-    
+
 
 
 ```python
@@ -56,9 +64,9 @@ print(f'\nTest Set has {test.shape[0]} rows and {test.shape[1]} columns which ar
 ```
 
     Training Set has 7613 rows and 5 columns which are ['id' 'keyword' 'location' 'text' 'target'].
-    
+
     Test Set has 3263 rows and 4 columns which are ['id' 'keyword' 'location' 'text'].
-    
+
 
 
 ```python
@@ -86,7 +94,7 @@ print(f'Unique values in Location: {train["keyword"].nunique()} over {train["key
     dtype: float64
     Unique values in Location: 3341 over 5080 nonmissing observations in Train Set and 1602 over 2158 nonmissing observations in Test Set
     Unique values in Location: 221 over 7552 nonmissing observations in Train Set and 221 over 3237 nonmissing observations in Test Set
-    
+
 
 ### Keyword Feature
 
@@ -135,15 +143,15 @@ plt.show()
 
 ```python
 # Import NLTK package and Regex for cleaning
-from nltk.corpus import stopwords 
-from nltk.tokenize import word_tokenize 
-from nltk.stem import WordNetLemmatizer 
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import wordpunct_tokenize
 import re
-  
+
 lemmatizer = WordNetLemmatizer().lemmatize   
-stop_words = set(stopwords.words('english')) 
-  
+stop_words = set(stopwords.words('english'))
+
 ```
 
 
@@ -196,20 +204,20 @@ for i in np.random.randint(train.shape[0], size=5):
 
     Raw: Young dancer moves about 300 youth in attendance at the GMMBC Youth Explosion this past Saturday. Inspiring! http://t.co/TMmOrvxsWz.
     Cleaned: young dancer move youth attendance gmmbc youth explosion past saturday inspiring
-    
+
     Raw: FedEx no longer will transport bioterror germs http://t.co/qfjjDxes7G via @USATODAY.
     Cleaned: fedex longer transport bioterror germ via
-    
+
     Raw: 'Congress' should be renamed Italian Goonda Party. They are a motley crowd of hooligans and selfavowed crooks determined to derail democracy.
     Cleaned: congress renamed italian goonda party motley crowd hooligan selfavowed crook determined derail democracy
-    
+
     Raw: I think Twitter was invented to keep us insomniacs from rioting in the wee small hours..
     Cleaned: think twitter invented keep u insomniac rioting wee small hour
-    
+
     Raw: http://t.co/Ns1AgGFNxz #shoes Asics GT-II Super Red 2.0 11 Ronnie Fieg Kith Red White 3M x gel grey volcano 2 http://t.co/oD250zshFy.
     Cleaned: shoe asics gt ii super red ronnie fieg kith red white x gel grey volcano
-    
-    
+
+
 
 
 ```python
@@ -268,7 +276,7 @@ print('Shape of validation label tensor:', y_valid.shape)
     Shape of train label tensor: (6090,)
     Shape of validation set tensor: (1523, 200)
     Shape of validation label tensor: (1523,)
-    
+
 
 
 ```python
@@ -292,10 +300,10 @@ print("Completed!")
 
     Loading GloVe from: ../input/glove-global-vectors-for-word-representation/glove.twitter.27B.100d.txt ...
     Done.
-    
+
     Proceeding with Embedding Matrix...
     Completed!
-    
+
 
 
 ```python
@@ -314,7 +322,7 @@ def f1_score_keras(y_true, y_pred): #taken from old keras source code
 ```
 
     Using TensorFlow backend.
-    
+
 
 
 ```python
@@ -375,7 +383,7 @@ print(f'The time in minutes: {final_time}')
     Epoch 10/10
     6090/6090 [==============================] - 30s 5ms/sample - loss: 0.2584 - f1_score_keras: 0.8661 - val_loss: 0.5412 - val_f1_score_keras: 0.7294
     The time in minutes: 5.213823930422465
-    
+
 
 # Model Validation
 
@@ -469,7 +477,7 @@ model.evaluate(X_valid_padd, y_valid)
 ```
 
     1523/1523 [==============================] - 2s 1ms/sample - loss: 0.5412 - f1_score_keras: 0.7294
-    
+
 
 
 
@@ -519,7 +527,7 @@ def model_eval(learning_rate, num_input_nodes, adam_decay,num_dense_layers,num_d
 
     X_train_padd = padding_text(X_train,int(vocab_size),int(max_length))
     X_valid_padd = padding_text(X_valid,int(vocab_size),int(max_length))
-     
+
     model = tf.keras.Sequential([
         Embedding(len(word_index) + 1, embedding_dim,weights = [embedding_matrix],
                     input_length=int(max_length), trainable=False, name = 'embeddings'),
@@ -534,17 +542,17 @@ def model_eval(learning_rate, num_input_nodes, adam_decay,num_dense_layers,num_d
                         name=name
                  ))
         model.add(Dropout(drop_out))
-    
+
     model.add(Dense(1, activation='sigmoid'))
-        
+
     #setup our optimizer and compile
     adam = Adam(lr=learning_rate, decay= adam_decay)
     model.compile(loss='binary_crossentropy',optimizer='adam',metrics=[f1_score_keras])
-    
+
     num_epochs = 5
     history = model.fit(X_train_padd, y_train, epochs=num_epochs, validation_data=(X_valid_padd, y_valid), verbose=1)
 
-    pred = model.predict_classes(X_valid_padd) 
+    pred = model.predict_classes(X_valid_padd)
     f1_val = f1_score(y_valid, pred)
     return f1_val
 ```
@@ -564,7 +572,7 @@ max_length
 
 ```python
 Model_BO = BayesianOptimization(model_eval, {'learning_rate':(1e-4,1e-2), 'num_dense_layers':(1,5),
-                                            'num_input_nodes':(1,512), 'num_dense_nodes':(1,100), 
+                                            'num_input_nodes':(1,512), 'num_dense_nodes':(1,100),
                                             'adam_decay':(1e-6,1e-2), 'drop_out':(0,0.9), 'lstm_nodes':(64,200),
                                              'max_length':(1,200)
                                             })
