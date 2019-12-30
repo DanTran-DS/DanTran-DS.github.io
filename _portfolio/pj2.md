@@ -1,9 +1,9 @@
 ---
 title: "First Portfolio"
 excerpt: "testing portfolio"
-header:
-  image: /assets/images/foo-bar-identity.jpg
-  teaser: /assets/images/foo-bar-identity-th.jpg
+#header:
+#  image: /assets/images/foo-bar-identity.jpg
+#  teaser: /assets/images/foo-bar-identity-th.jpg
 #sidebar:
 #  - title: "Role"
 #    image: http://placehold.it/350x250
