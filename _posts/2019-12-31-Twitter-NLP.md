@@ -131,7 +131,7 @@ plt.show()
 ```
 
 
-![png](Twitter%20NLP%20with%20LSTM%20and%20Glove_files/Twitter%20NLP%20with%20LSTM%20and%20Glove_8_0.png)
+![png]('Twitter NLP with LSTM and Glove_files/Twitter NLP with LSTM and Glove_8_0.png')
 
 
 
