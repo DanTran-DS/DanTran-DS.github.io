@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: Collections
 title: Twitter NLP
 excerpt: "Twitter NLP with LSTM"
 tags: [intro, beginner, twitter, tutorial]
