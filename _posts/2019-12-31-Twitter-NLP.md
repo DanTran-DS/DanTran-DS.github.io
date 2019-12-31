@@ -1,11 +1,10 @@
 ---
-layout: single
+layout: posts
 title: Twitter NLP
 excerpt: "Twitter NLP with LSTM"
 tags: [intro, beginner, twitter, tutorial]
 comments: true
 category: blog
-toc: true
 ---
 
 ```python
