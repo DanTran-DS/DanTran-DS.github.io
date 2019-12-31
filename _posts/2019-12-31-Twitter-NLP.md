@@ -131,11 +131,11 @@ plt.show()
 ```
 
 
-![png](Twitter NLP with LSTM and Glove_files/Twitter NLP with LSTM and Glove_8_0.png)
+![png](_posts/Twitter_NLP/Twitter_NLP_8_0.png)
 
 
 
-![png](Twitter%20NLP%20with%20LSTM%20and%20Glove_files/Twitter%20NLP%20with%20LSTM%20and%20Glove_8_1.png)
+![png](_posts/Twitter%20NLP%20with%20LSTM%20and%20Glove_files/Twitter%20NLP%20with%20LSTM%20and%20Glove_8_1.png)
 
 
 # Cleaning Up datasets
