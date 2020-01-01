@@ -59,7 +59,7 @@ Hello World, how is it going?
 
 # EDA
 
-### Check size of our data
+## Check size of our data
 
 <details>
   <summary>Click to expand!</summary>
@@ -78,7 +78,7 @@ Hello World, how is it going?
     Training Set has 7613 rows and 5 columns which are ['id' 'keyword' 'location' 'text' 'target'].
     Test Set has 3263 rows and 4 columns which are ['id' 'keyword' 'location' 'text'].
 
-### Check Missing Values
+## Check Missing Values
 
 ```python
 print('Train Set % Missing Values:\n',(train.isnull().sum()*100/len(train)).sort_values(ascending=False))
@@ -107,12 +107,11 @@ print(f'Unique values in Location: {train["keyword"].nunique()} over {train["key
     Unique values in Location: 3341 over 5080 nonmissing observations in Train Set and 1602 over 2158 nonmissing observations in Test Set
     Unique values in Location: 221 over 7552 nonmissing observations in Train Set and 221 over 3237 nonmissing observations in Test Set
 
-
-### Features
-#### Location
+## Features
+### Location
 Location has about 33% observations without infomation. There are too many unique values comapring to number of observation. Since location is less likely to have correlation with real or fake disaster tweets, it is safe to remove it from the analysis.
 
-#### Keyword
+### Keyword
 
 
 ```python
