@@ -45,6 +45,16 @@ Hello World, how is it going?
 </code>
 </details>
 
+<details>
+  <summary>Click to expand!</summary>
+
+  ```javascript
+    function whatIsLove() {
+      console.log('Baby Don't hurt me. Don't hurt me');
+      return 'No more';
+    }
+  ```
+</details>
 
 # EDA
 
@@ -55,10 +65,10 @@ Hello World, how is it going?
 
   #### yes, even hidden code blocks!
 
+
   ```python
   print(f'Training Set has {train.shape[0]} rows and {train.shape[1]} columns which are {train.columns.values}.')
   print(f'Test Set has {test.shape[0]} rows and {test.shape[1]} columns which are {test.columns.values}.')
-
   ```
 
 </details>
