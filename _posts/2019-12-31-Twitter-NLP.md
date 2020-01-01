@@ -7,14 +7,16 @@ comments: true
 category: blog
 toc: true
 image:
-  feature: /assets/images/ds-sq.jpg"
+  feature: "/assets/images/ds-sq.jpg"
+
+header-img: "/assets/images/ds-img.jpg"
 ---
 
 # Import datasets
 
 ```python
 import pandas as pd
-submission = pd.read_csv("../input/nlp-getting-started/sample_submission.csv")
+
 test = pd.read_csv("../input/nlp-getting-started/test.csv")
 train = pd.read_csv("../input/nlp-getting-started/train.csv")
 ```
@@ -29,28 +31,28 @@ pd.set_option('display.max_colwidth', 100)
 
 # EDA
 
+###Check size of our data
 
+<details><summary>Click this!</summary>
 ```python
-# Check size of our data
 print(f'Training Set has {train.shape[0]} rows and {train.shape[1]} columns which are {train.columns.values}.')
-print(f'\nTest Set has {test.shape[0]} rows and {test.shape[1]} columns which are {test.columns.values}.')
+print(f'Test Set has {test.shape[0]} rows and {test.shape[1]} columns which are {test.columns.values}.')
 
 ```
+</details>
 
     Training Set has 7613 rows and 5 columns which are ['id' 'keyword' 'location' 'text' 'target'].
-
     Test Set has 3263 rows and 4 columns which are ['id' 'keyword' 'location' 'text'].
 
-
+###Check Missing Values
 
 ```python
-# Missing Value
 print('Train Set % Missing Values:\n',(train.isnull().sum()*100/len(train)).sort_values(ascending=False))
 print('Test Set % Missing Values:\n',(test.isnull().sum()*100/len(test)).sort_values(ascending=False))
 print(f'Unique values in Location: {train["location"].nunique()} over {train["location"].notnull().sum()} nonmissing observations in Train Set and {test["location"].nunique()} over {test["location"].notnull().sum()} nonmissing observations in Test Set' )
 print(f'Unique values in Location: {train["keyword"].nunique()} over {train["keyword"].notnull().sum()} nonmissing observations in Train Set and {test["keyword"].nunique()} over {test["keyword"].notnull().sum()} nonmissing observations in Test Set' )
 
-# Location has about 33% observations without infomation. There are too many unique values comapring to number of observation. Since location is less likely to have correlation with real or fake disaster tweets, it is safe to remove it from the analysis.
+
 ```
 
     Train Set % Missing Values:
@@ -70,7 +72,11 @@ print(f'Unique values in Location: {train["keyword"].nunique()} over {train["key
     Unique values in Location: 221 over 7552 nonmissing observations in Train Set and 221 over 3237 nonmissing observations in Test Set
 
 
-### Keyword Feature
+### Features
+#### Location
+Location has about 33% observations without infomation. There are too many unique values comapring to number of observation. Since location is less likely to have correlation with real or fake disaster tweets, it is safe to remove it from the analysis.
+
+#### Keyword
 
 
 ```python
@@ -81,15 +87,17 @@ diverging_colors = sns.color_palette("RdBu", 10)
 sns.set_palette(diverging_colors)
 ```
 
+Plot top 20 keywords that correlated to the real tweets
 
 ```python
-%matplotlib inline
+
 # Compute and sort real/fake ratio for each keyword
 keyword_df = train[['id','keyword','target']].copy()
 keyword_df['correct_pct'] = keyword_df.groupby('keyword')['target'].transform('mean')
 keyword_df = keyword_df.drop_duplicates('keyword').sort_values('correct_pct', ascending=False)
 
 # Plot top 50 keywords
+%matplotlib inline
 fig = plt.figure(figsize=(8, 5), dpi=100)
 
 ax = sns.barplot(y='keyword', x='correct_pct',data=keyword_df.iloc[:20])
@@ -107,16 +115,16 @@ plt.show()
 
 ![png](/_posts/Twitter_NLP/Twitter_NLP_8_0.png)
 
-
+And Bottom 20 keywords
 
 ![png](/_posts/Twitter%20NLP%20with%20LSTM%20and%20Glove_files/Twitter%20NLP%20with%20LSTM%20and%20Glove_8_1.png)
 
 
 # Cleaning Up datasets
 
+Import NLTK package and Regex for cleaning
 
 ```python
-# Import NLTK package and Regex for cleaning
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
@@ -128,9 +136,9 @@ stop_words = set(stopwords.words('english'))
 
 ```
 
+Remove puntuation, url links, remove stopwords then tokenize text
 
 ```python
-# Remove puntuation, url links, remove stopwords then tokenize text
 def clean_text(text, fix_spelling=False):
     text = re.sub(r'http.*?( |$)', '', text)
     text = re.sub(r'@.*?( |$)', '', text)
@@ -145,11 +153,12 @@ def clean_text(text, fix_spelling=False):
     return ' '.join(tokenized)
 ```
 
+Create a function to transform a dataset to usable format
+Drop irrelevant columns, apply the clean_text function to the text column,
+seperate feature and label columns
+Then return X, y
 
 ```python
-# Create a function to transform a dataset to usable format
-# Drop irrelevant columns, apply the clean_text function to the text column, seperate feature and label columns
-# Return X, y
 def transform_data(dataset, text_col, label):
     data = dataset.drop(columns=['keyword','location'])
     data['clean_text'] = data[text_col].apply(clean_text)
@@ -161,16 +170,14 @@ def transform_data(dataset, text_col, label):
     return x, y
 ```
 
-
+Transform train and test dataframe
 ```python
-# Transform train and test dataframe
 X, y = transform_data(train, 'text','target')
 X_test, _ = transform_data(test, 'text','target')
 ```
 
-
+Test cleaning process
 ```python
-# Test cleaning process
 for i in np.random.randint(train.shape[0], size=5):
     print(f'Raw: {train["text"][i]}.\nCleaned: {X[i]}\n')
 
@@ -192,18 +199,16 @@ for i in np.random.randint(train.shape[0], size=5):
     Cleaned: shoe asics gt ii super red ronnie fieg kith red white x gel grey volcano
 
 
-
+Split X into train and validation sets
 
 ```python
-# Split X into train and validation sets
 
 from sklearn.model_selection import train_test_split
 
 X_train, X_valid, y_train, y_valid = train_test_split(X, y, random_state = 777, test_size = 0.2)
 ```
 
-## Preparing for deep learning
-
+Preparing for deep learning
 
 ```python
 # Hyperparameters
