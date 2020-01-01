@@ -31,9 +31,10 @@ pd.set_option('display.max_colwidth', 100)
 
 # EDA
 
-###Check size of our data
+### Check size of our data
 
 <details><summary>Click this!</summary>
+
 ```python
 print(f'Training Set has {train.shape[0]} rows and {train.shape[1]} columns which are {train.columns.values}.')
 print(f'Test Set has {test.shape[0]} rows and {test.shape[1]} columns which are {test.columns.values}.')
@@ -44,7 +45,7 @@ print(f'Test Set has {test.shape[0]} rows and {test.shape[1]} columns which are 
     Training Set has 7613 rows and 5 columns which are ['id' 'keyword' 'location' 'text' 'target'].
     Test Set has 3263 rows and 4 columns which are ['id' 'keyword' 'location' 'text'].
 
-###Check Missing Values
+### Check Missing Values
 
 ```python
 print('Train Set % Missing Values:\n',(train.isnull().sum()*100/len(train)).sort_values(ascending=False))
@@ -62,12 +63,14 @@ print(f'Unique values in Location: {train["keyword"].nunique()} over {train["key
     text         0.000000
     id           0.000000
     dtype: float64
+
     Test Set % Missing Values:
      location    33.864542
     keyword      0.796813
     text         0.000000
     id           0.000000
     dtype: float64
+
     Unique values in Location: 3341 over 5080 nonmissing observations in Train Set and 1602 over 2158 nonmissing observations in Test Set
     Unique values in Location: 221 over 7552 nonmissing observations in Train Set and 221 over 3237 nonmissing observations in Test Set
 
@@ -113,11 +116,12 @@ plt.show()
 ```
 
 
-![png](/_posts/Twitter_NLP/Twitter_NLP_8_0.png)
+![png](../_posts/Twitter_NLP/Twitter_NLP_8_0.png)
+![b20](/assets/images/Twitter_NLP/Twitter_NLP_8_1.png)
 
 And Bottom 20 keywords
 
-![png](/_posts/Twitter%20NLP%20with%20LSTM%20and%20Glove_files/Twitter%20NLP%20with%20LSTM%20and%20Glove_8_1.png)
+![png](../_posts/Twitter%20NLP%20with%20LSTM%20and%20Glove_files/Twitter%20NLP%20with%20LSTM%20and%20Glove_8_1.png)
 
 
 # Cleaning Up datasets
