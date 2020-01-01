@@ -6,6 +6,7 @@ tags: [Kaggle, NLP, twitter, tutorial, LSTM, GloVe]
 comments: true
 category: blog
 toc: true
+toc_sticky: False
 image:
   feature: "../assets/images/ds-sq.jpg"
 
