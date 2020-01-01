@@ -6,6 +6,8 @@ tags: [intro, beginner, twitter, tutorial]
 comments: true
 category: blog
 toc: true
+image:
+  feature: /assets/images/ds-sq.jpg
 ---
 
 ```python
@@ -131,11 +133,11 @@ plt.show()
 ```
 
 
-![png](_posts/Twitter_NLP/Twitter_NLP_8_0.png)
+![png](/_posts/Twitter_NLP/Twitter_NLP_8_0.png)
 
 
 
-![png](_posts/Twitter%20NLP%20with%20LSTM%20and%20Glove_files/Twitter%20NLP%20with%20LSTM%20and%20Glove_8_1.png)
+![png](/_posts/Twitter%20NLP%20with%20LSTM%20and%20Glove_files/Twitter%20NLP%20with%20LSTM%20and%20Glove_8_1.png)
 
 
 # Cleaning Up datasets
