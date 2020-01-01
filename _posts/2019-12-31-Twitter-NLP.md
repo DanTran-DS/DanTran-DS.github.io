@@ -7,7 +7,7 @@ comments: true
 category: blog
 toc: true
 image:
-  feature: /assets/images/ds-sq.jpg
+  feature: /assets/images/ds-sq.jpg"
 ---
 
 # Import datasets
