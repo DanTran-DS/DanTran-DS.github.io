@@ -29,6 +29,19 @@ pd.set_option('display.max_columns', 500)
 pd.set_option('display.max_colwidth', 100)
 ```
 
+<details>
+<summary>Summary text.</summary>
+<code style="white-space:nowrap;">
+```python
+pd.set_option('display.max_rows', 500)
+pd.set_option('display.max_columns', 500)
+pd.set_option('display.max_colwidth', 100)
+```
+Hello World, how is it going?
+</code>
+</details>
+
+
 # EDA
 
 ### Check size of our data
@@ -42,6 +55,7 @@ print(f'Training Set has {train.shape[0]} rows and {train.shape[1]} columns whic
 print(f'Test Set has {test.shape[0]} rows and {test.shape[1]} columns which are {test.columns.values}.')
 
 ```
+
 </p>
 </details>
 
