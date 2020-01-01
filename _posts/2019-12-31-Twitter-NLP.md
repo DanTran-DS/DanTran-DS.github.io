@@ -2,14 +2,14 @@
 layout: single
 title: Twitter NLP
 excerpt: "Twitter NLP with LSTM"
-tags: [intro, beginner, twitter, tutorial]
+tags: [Kaggle, NLP, twitter, tutorial, LSTM, GloVe]
 comments: true
 category: blog
 toc: true
 image:
-  feature: "/assets/images/ds-sq.jpg"
+  feature: "../assets/images/ds-sq.jpg"
 
-header-img: "/assets/images/ds-img.jpg"
+header-img: /assets/images/ds-img.jpg
 ---
 
 # Import datasets
@@ -32,11 +32,15 @@ pd.set_option('display.max_colwidth', 100)
 <details>
 <summary>Summary text.</summary>
 <code style="white-space:nowrap;">
+
 ```python
+
 pd.set_option('display.max_rows', 500)
 pd.set_option('display.max_columns', 500)
 pd.set_option('display.max_colwidth', 100)
+
 ```
+
 Hello World, how is it going?
 </code>
 </details>
@@ -45,19 +49,20 @@ Hello World, how is it going?
 # EDA
 
 ### Check size of our data
-<details><summary>Show codes</summary>
-<p>
 
-#### yes, even hidden code blocks!
+<details>
+  <summary>Click to expand!</summary>
 
-```python
-print(f'Training Set has {train.shape[0]} rows and {train.shape[1]} columns which are {train.columns.values}.')
-print(f'Test Set has {test.shape[0]} rows and {test.shape[1]} columns which are {test.columns.values}.')
+  #### yes, even hidden code blocks!
 
-```
+  ```python
+  print(f'Training Set has {train.shape[0]} rows and {train.shape[1]} columns which are {train.columns.values}.')
+  print(f'Test Set has {test.shape[0]} rows and {test.shape[1]} columns which are {test.columns.values}.')
 
-</p>
+  ```
+
 </details>
+
 
     Training Set has 7613 rows and 5 columns which are ['id' 'keyword' 'location' 'text' 'target'].
     Test Set has 3263 rows and 4 columns which are ['id' 'keyword' 'location' 'text'].
