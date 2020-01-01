@@ -32,14 +32,17 @@ pd.set_option('display.max_colwidth', 100)
 # EDA
 
 ### Check size of our data
+<details><summary>Show codes</summary>
+<p>
 
-<details><summary>Click this!</summary>
+#### yes, even hidden code blocks!
 
 ```python
 print(f'Training Set has {train.shape[0]} rows and {train.shape[1]} columns which are {train.columns.values}.')
 print(f'Test Set has {test.shape[0]} rows and {test.shape[1]} columns which are {test.columns.values}.')
 
 ```
+</p>
 </details>
 
     Training Set has 7613 rows and 5 columns which are ['id' 'keyword' 'location' 'text' 'target'].
@@ -116,12 +119,11 @@ plt.show()
 ```
 
 
-![png](../_posts/Twitter_NLP/Twitter_NLP_8_0.png)
-![b20](/assets/images/Twitter_NLP/Twitter_NLP_8_1.png)
+![t20](/assets/images/Twitter_NLP/Twitter_NLP_8_0.png)
 
 And Bottom 20 keywords
 
-![png](../_posts/Twitter%20NLP%20with%20LSTM%20and%20Glove_files/Twitter%20NLP%20with%20LSTM%20and%20Glove_8_1.png)
+![b20](/assets/images/Twitter_NLP/Twitter_NLP_8_1.png)
 
 
 # Cleaning Up datasets
@@ -451,7 +453,7 @@ model_loss[['f1_score_keras','val_f1_score_keras']].plot(ylim=[0,1]);
 ```
 
 
-![png](Twitter%20NLP%20with%20LSTM%20and%20Glove_files/Twitter%20NLP%20with%20LSTM%20and%20Glove_25_0.png)
+![validgph](/assets/images/Twitter_NLP/Twitter_NLP_25_0.png)
 
 
 
