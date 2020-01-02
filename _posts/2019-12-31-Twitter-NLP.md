@@ -1,16 +1,15 @@
 ---
 layout: single
-title: Twitter NLP
-excerpt: "Twitter NLP with LSTM"
+title: Real or Fake Disaster Tweets Classification
+excerpt: "Real or Fake Disaster Tweets Classification using NLP with LSTM and Glove"
 tags: [Kaggle, NLP, twitter, tutorial, LSTM, GloVe]
 comments: true
 category: blog
 toc: true
-toc_sticky: False
-image:
-  feature: "../assets/images/ds-sq.jpg"
+toc_sticky: false
 
-header-img: /assets/images/ds-img.jpg
+image:
+  teaser: /assets/images/ds-sq.jpg
 ---
 
 # Import datasets
@@ -30,49 +29,15 @@ pd.set_option('display.max_columns', 500)
 pd.set_option('display.max_colwidth', 100)
 ```
 
-<details>
-<summary>Summary text.</summary>
-<code style="white-space:nowrap;">
-
-```python
-
-pd.set_option('display.max_rows', 500)
-pd.set_option('display.max_columns', 500)
-pd.set_option('display.max_colwidth', 100)
-
-```
-
-Hello World, how is it going?
-</code>
-</details>
-
-<details>
-  <summary>Click to expand!</summary>
-
-  ```javascript
-    function whatIsLove() {
-      console.log('Baby Don't hurt me. Don't hurt me');
-      return 'No more';
-    }
-  ```
-</details>
-
 # EDA
 
 ## Check size of our data
 
-<details>
-  <summary>Click to expand!</summary>
 
-  #### yes, even hidden code blocks!
-
-
-  ```python
-  print(f'Training Set has {train.shape[0]} rows and {train.shape[1]} columns which are {train.columns.values}.')
-  print(f'Test Set has {test.shape[0]} rows and {test.shape[1]} columns which are {test.columns.values}.')
-  ```
-
-</details>
+```python
+print(f'Training Set has {train.shape[0]} rows and {train.shape[1]} columns which are {train.columns.values}.')
+print(f'Test Set has {test.shape[0]} rows and {test.shape[1]} columns which are {test.columns.values}.')
+```
 
 
     Training Set has 7613 rows and 5 columns which are ['id' 'keyword' 'location' 'text' 'target'].
