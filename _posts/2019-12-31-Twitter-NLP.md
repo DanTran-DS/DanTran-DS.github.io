@@ -1,8 +1,8 @@
 ---
 layout: single
-title: Real or Fake Disaster Tweets Classification
+title: Real or Fake Disaster Tweets Classification - Part 1
 excerpt: "Real or Fake Disaster Tweets Classification using NLP with LSTM and Glove"
-tags: [Kaggle, NLP, twitter, tutorial, LSTM, GloVe]
+tags: [Kaggle, NLP, Twitter, LSTM, GloVe, Python]
 comments: true
 category: blog
 toc: true
