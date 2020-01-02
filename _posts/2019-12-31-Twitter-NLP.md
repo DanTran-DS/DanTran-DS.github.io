@@ -8,8 +8,8 @@ category: blog
 toc: true
 toc_sticky: false
 
-image:
-  teaser: /assets/images/ds-sq.jpg
+header:
+  teaser: "/assets/images/teasers/TwitterClassification.png"
 ---
 
 # Import datasets
