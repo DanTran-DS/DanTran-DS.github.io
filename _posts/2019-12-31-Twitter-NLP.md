@@ -9,7 +9,7 @@ toc: true
 toc_sticky: false
 
 header:
-  teaser: "/assets/images/teasers/TwitterClassification.png"
+  teaser: /assets/images/teaser/TwitterClassification.png
 ---
 
 # Import datasets
