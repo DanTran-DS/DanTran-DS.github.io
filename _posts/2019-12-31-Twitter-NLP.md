@@ -111,7 +111,11 @@ ax.xaxis.set_ticks_position('top')
 ax.set_title('Bottom 20 Real to Fake Tweet Ratio by Keywords ')
 plt.show()
 ```
-
+<figure class="half">
+    <a href="/assets/images/Twitter_NLP/Twitter_NLP_8_0.png"></a>
+    <a href="/assets/images/Twitter_NLP/Twitter_NLP_8_1.png"></a>
+    <figcaption>Top and Bottom 20 keywords</figcaption>
+</figure>
 
 ![t20](/assets/images/Twitter_NLP/Twitter_NLP_8_0.png)
 
