@@ -28,18 +28,18 @@ Compustat is a popular database in financial research due to its spread in both 
 Install wrds library if it wasn't
 
 
-```
+```python
 !pip install wrds
 ```
 
-```
+```python
 import wrds
 ```
 
 Create a connection to wrds database
 
 
-```
+```python
 conn = wrds.Connection(wrds_username='dantran')
 ```
 
@@ -50,11 +50,11 @@ conn = wrds.Connection(wrds_username='dantran')
 Let's create a pgpass file so we don't need to type the username and password everytime we need to connect to the database.
 
 
-```
+```python
 conn.create_pgpass_file()
 ```
 
-    Enter your WRDS username [Duong]:dantran
+    Enter your WRDS username [Dan]:dantran
     Enter your password:········
     
 
@@ -63,7 +63,7 @@ conn.create_pgpass_file()
 Since wrds library returns pandas dataframe, we can change some settings in pandas to show more columns and rows.
 
 
-```
+```python
 import pandas as pd
 pd.set_option('display.max_rows', 500)
 pd.set_option('display.max_columns', 500)
@@ -73,213 +73,15 @@ pd.set_option('display.max_colwidth', 100)
 List all avaiable libraries in WRDS
 
 
-```
+```python
 conn.list_libraries()
 ```
 
-<details><summary>CLICK ME</summary>
-<p>
-
-
-    ['wrds_lib_internal',
-     'mflinks_all_new',
-     'lspdsamp',
-     'optionmsamp_europe',
-     'ktmine_patents_samp',
-     'rpna',
-     'optionmsamp_us',
-     'omtrial',
-     'ppubsamp_d4d_new',
-     'ravenpack_trial',
-     'rpnasamp',
-     'reprisk_sample',
-     'ppubsamp_d4d',
-     'sdc',
-     'mrktsamp_cds',
-     'mrktsamp_msf',
-     'ims_obp_trial',
-     'secsamp',
-     'infogroupsamp_residential',
-     'infogroupsamp_business',
-     'snapsamp',
-     'snl',
-     'snlsamp',
-     'hfrsamp_hfrdb',
-     'mrktsamp_cdx',
-     'twoiq_samp',
-     'crsp_a_ccm_new',
-     'contrib_char_returns_new',
-     'audit',
-     'macrofin_comm_trade_new',
-     'taq',
-     'secsamp_all_new',
-     'compd',
-     'compgd',
-     'tr_tass',
-     'preqsamp_all_new',
-     'compbd',
-     'compsegd',
-     'crspa',
-     'boardex',
-     'boardsmp',
-     'sprat',
-     'etfg_samp',
-     'tr_ibes_new',
-     'tr_13f',
-     'sustain',
-     'ciq_ratings',
-     'ciqsamp',
-     'tr_mutualfunds',
-     'contrib_general_new',
-     'crsp_q_indexhist',
-     'aha_sample',
-     'tfn',
-     'totalq',
-     'toyo',
-     'trace',
-     'trown',
-     'trsdcgs',
-     'trws',
-     'twoiq',
-     'wcai',
-     'wqa',
-     'wrdsapps',
-     'wrdsrpts',
-     'tr_ibes',
-     'wrdssec',
-     'zacks',
-     'calcbench_trial',
-     'aha',
-     'comp_execucomp',
-     'ahasamp',
-     'bank',
-     'blab',
-     'block',
-     'compsamp_snapshot',
-     'contrib_char_returns',
-     'contrib_general',
-     'bvdlgcy',
-     'ciq',
-     'cisdm',
-     'clrvt',
-     'clrvtsmp',
-     'compg',
-     'eurekahedge_sample',
-     'bvdsamp',
-     'comph',
-     'contrib',
-     'crsp',
-     'crspm',
-     'hbase_sample',
-     'macrofin_comm_trade',
-     'crspq',
-     'crspsamp',
-     'otc_endofday',
-     'trace_enhanced',
-     'trace_standard',
-     'wrdssec_midas',
-     'compdcur',
-     'comp_global_daily',
-     'csmar',
-     'dealscan',
-     'djones',
-     'factset_common',
-     'govpx',
-     'govpxsmp',
-     'gsi',
-     'ciqsamp_transcripts',
-     'ciq_pplintel',
-     'ciq_common',
-     'comp_bank_daily',
-     'crsp_q_mutualfunds',
-     'comp_segments_hist_daily',
-     'crsp_a_stock',
-     'wrdsrpts_rep_usage',
-     'factset_own',
-     'comp_bank',
-     'comp_global',
-     'boardex_na',
-     'comp_segments_hist',
-     'snl_fundamentals',
-     'snlsamp_fig',
-     'etfg',
-     'etfgsamp',
-     'eureka',
-     'evts',
-     'boardex_trial',
-     'crsp_a_ccm',
-     'bvd',
-     'compa',
-     'compb',
-     'hbsamp',
-     'dmef',
-     'doe',
-     'emdb',
-     'iri',
-     'issm',
-     'kld',
-     'ktmine',
-     'ktsamp',
-     'levin',
-     'lspd',
-     'macrofin',
-     'markit',
-     'mfl',
-     'hfr',
-     'ibes',
-     'ibescorp',
-     'ibeskpi',
-     'ifgr',
-     'ims',
-     'risk',
-     'msfanly',
-     'factsamp_revere',
-     'calcbnch',
-     'cboe',
-     'centris',
-     'compm',
-     'compmcur',
-     'compsamp',
-     'compseg',
-     'compsnap',
-     'comscore',
-     'execcomp',
-     'factset',
-     'ff',
-     'fisd',
-     'fisdsamp',
-     'frb',
-     'fssamp',
-     'ftse',
-     'ftsesamp',
-     'ginsight',
-     'gmi',
-     'hbase',
-     'msfinst',
-     'msrb',
-     'nastraq',
-     'ppublica',
-     'ppubsamp',
-     'public',
-     'pwt',
-     'rent',
-     'reprisk',
-     'revere',
-     'tass',
-     'taqmsec',
-     'comp',
-     'optionm',
-     'otc',
-     'pacap',
-     'phlx']
-
-</p>
-</details>
 
 Our target is CEO compensation which can be found in Execucomp library. Let's list tables in the library.
 
 
-```
+```python
 conn.list_tables(library='execcomp')
 ```
 
@@ -308,7 +110,7 @@ The table of interest is anncomp whichl ists all named executives, titles, and t
 Compensation data includes items such as: salary, stock options, bonuses, and shares owned. Let's look at the first 10 columns of the table.
 
 
-```
+```python
 conn.describe_table(library="execcomp", table="anncomp").head(10)
 ```
 
@@ -409,7 +211,7 @@ conn.describe_table(library="execcomp", table="anncomp").head(10)
 
 
 
-```
+```python
 query = """
             SELECT exec_fullname, total_sec,salary,bonus, year, gender, age, coname,inddesc,city, state, execdir, ceoann
             FROM execcomp.anncomp
@@ -548,7 +350,7 @@ Let's see numbers of unique firms and executives, the range of year in the data.
 Since the year is in _Float_ format, we use **CAST** to change it into _Interger_.
 
 
-```
+```python
 query = """
             SELECT COUNT(DISTINCT execid) as num_exec, 
                 COUNT(DISTINCT gvkey) as num_company,
@@ -614,7 +416,7 @@ The minimum compensation is negative which is odd. We may have data entry error.
 Let's look at observations with negative values.
 
 
-```
+```python
 query = """
             SELECT exec_fullname, coname, year, total_sec, salary,
                  bonus, salary, stock_awards,STOCK_UNVEST_VAL, 
@@ -757,7 +559,7 @@ Third, we use **Inner Join** since we need data from both tables.
 Lastly, we use aggregate function **AVG()** to get the average CEO compensation. 
 
 
-```
+```python
 query = """
         SELECT AVG(total_sec) AS Average_CEO_compensation
         FROM (SELECT * FROM execcomp.anncomp WHERE ceoann ='CEO') AS a 
@@ -813,7 +615,7 @@ The result is 17.81 million dollars which is close to the value from the article
 Let's check average salary and number of executives, firms by year
 
 
-```
+```python
 query = """
         SELECT  CAST(year AS INT), COUNT(DISTINCT execid) AS num_exec,
                 COUNT(DISTINCT gvkey) AS num_firms, 
@@ -1064,7 +866,7 @@ Let see the differnet between Male and Female Executive's salary. The salary is 
 **COUNT DISTINCT** is used since the data are accross multiple years so an executive can appear several times.
 
 
-```
+```python
 query = """
         SELECT  gender, COUNT(DISTINCT execid), AVG(salary) as avg_salary 
         FROM execcomp.anncomp 
@@ -1123,7 +925,7 @@ So there are 10 times more male executives than female and in average, male exec
 Next, let's compute the differences between Male and Female Executive by year. We can see the gap becomes smaller in 2018 compare to 1992.
 
 
-```
+```python
 query = """
         SELECT a.*, b.female_avg_salary, male_avg_salary-female_avg_salary AS Diff
         FROM (SELECT year, CAST(AVG(salary) AS DECIMAL(10,2)) AS male_avg_salary
@@ -1372,7 +1174,7 @@ conn.raw_sql(query)
 ## Age Group
 
 
-```
+```python
 query = """SELECT COUNT(*),
                 CASE WHEN age < 40 THEN 'less than 40'
                     WHEN age > 60 THEN 'over 60'
@@ -1436,7 +1238,7 @@ conn.raw_sql(query)
 ## By Position 
 
 
-```
+```python
 query = """
         SELECT  COUNT(DISTINCT execid) as num_exec, 
                 CAST(AVG(salary) AS DECIMAL(10,2)) as avg_salary,
@@ -1539,7 +1341,7 @@ Futhermore, there are only 64 people work as CEO only.
 ## By Industry
 
 
-```
+```python
 query = """
         SELECT  INDDESC, COUNT(DISTINCT execid) as num_exec, 
                 CAST(AVG(total_sec) AS DECIMAL(10,2)) as avg_compensation 
@@ -1648,7 +1450,7 @@ conn.raw_sql(query)
 The compensation for executive in Multi-Sector Industry is highest. Let's see what executives, firms are in that industry.
 
 
-```
+```python
 query = """
         SELECT  exec_fullname, coname as company_name, total_sec as Total_compensation,
                 bonus, salary, stock_awards,STOCK_UNVEST_VAL, option_awards, OTHCOMP
@@ -1822,7 +1624,7 @@ conn.raw_sql(query)
 Let's find top 10 states with highest compensation.
 
 
-```
+```python
 query = """
         SELECT  state, COUNT(*) as num_exec, AVG(total_sec) AS compensation
         FROM execcomp.anncomp
