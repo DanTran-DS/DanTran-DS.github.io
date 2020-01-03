@@ -2,7 +2,7 @@
 
 layout: single
 title: Executives' Compensation EDA with SQL
-excerpt: ""
+excerpt: "This notebook includes perform Exploratory data analysis using SQL on the executives' compensation using data from Execucomp and Compustat."
 tags: [EDA, SQL, Python]
 comments: true
 category: blog
