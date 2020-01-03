@@ -202,7 +202,6 @@ collections:
 
 # Conversion
 markdown: kramdown
-
 highlighter: rouge
 lsi: false
 excerpt_separator: "\n\n"
@@ -219,7 +218,6 @@ kramdown:
   toc_levels: 1..6
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
-  parse_block_html: true
 
 # Sass/SCSS
 sass:
@@ -229,7 +227,7 @@ sass:
 
 # Outputting
 permalink: /:categories/:title/
-paginate: 5 # amount of posts to show
+paginate: 6 # amount of posts to show
 paginate_path: /page:num/
 timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
