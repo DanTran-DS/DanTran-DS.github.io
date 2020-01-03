@@ -1,3 +1,15 @@
+---
+
+layout: single
+title: Executives' Compensation EDA with SQL
+excerpt: ""
+tags: [EDA, SQL, Python]
+comments: true
+category: blog
+toc: true
+toc_sticky: false
+
+---
 
 # Overview
 
@@ -19,18 +31,6 @@ Install wrds library if it wasn't
 ```
 !pip install wrds
 ```
-
-    Requirement already satisfied: wrds in c:\users\duong\anaconda3\lib\site-packages (3.0.8)
-    Requirement already satisfied: pandas in c:\users\duong\anaconda3\lib\site-packages (from wrds) (0.24.2)
-    Requirement already satisfied: mock in c:\users\duong\anaconda3\lib\site-packages (from wrds) (3.0.5)
-    Requirement already satisfied: sqlalchemy in c:\users\duong\anaconda3\lib\site-packages (from wrds) (1.3.1)
-    Requirement already satisfied: psycopg2-binary in c:\users\duong\anaconda3\lib\site-packages (from wrds) (2.8.3)
-    Requirement already satisfied: python-dateutil>=2.5.0 in c:\users\duong\anaconda3\lib\site-packages (from pandas->wrds) (2.8.0)
-    Requirement already satisfied: pytz>=2011k in c:\users\duong\anaconda3\lib\site-packages (from pandas->wrds) (2018.9)
-    Requirement already satisfied: numpy>=1.12.0 in c:\users\duong\anaconda3\lib\site-packages (from pandas->wrds) (1.16.2)
-    Requirement already satisfied: six in c:\users\duong\anaconda3\lib\site-packages (from mock->wrds) (1.12.0)
-    
-
 
 ```
 import wrds
@@ -77,7 +77,8 @@ List all avaiable libraries in WRDS
 conn.list_libraries()
 ```
 
-
+<details><summary>CLICK ME</summary>
+<p>
 
 
     ['wrds_lib_internal',
@@ -272,7 +273,8 @@ conn.list_libraries()
      'pacap',
      'phlx']
 
-
+</p>
+</details>
 
 Our target is CEO compensation which can be found in Execucomp library. Let's list tables in the library.
 
