@@ -119,7 +119,7 @@ plt.gca().set_ylabel('Observation')
 
 
 
-![png](Twitter%20NLP%20EDA_files/Twitter%20NLP%20EDA_7_1.png)
+![png](/assets/images/Twitter_NLP/Twitter%20NLP%20EDA_7_1.png)
 
 
 ### Keyword Feature
@@ -150,11 +150,11 @@ plt.show()
 ```
 
 
-![png](Twitter%20NLP%20EDA_files/Twitter%20NLP%20EDA_9_0.png)
+![png](/assets/images/Twitter_NLP/Twitter%20NLP%20EDA_9_0.png)
 
 
 
-![png](Twitter%20NLP%20EDA_files/Twitter%20NLP%20EDA_9_1.png)
+![png](/assets/images/Twitter_NLP/Twitter%20NLP%20EDA_9_1.png)
 
 
 # Cleaning Up datasets
@@ -419,7 +419,7 @@ fig.map(plt.hist, "Word_Count_raw", bins=30);
 ```
 
 
-![png](Twitter%20NLP%20EDA_files/Twitter%20NLP%20EDA_17_0.png)
+![png](/assets/images/Twitter_NLP/Twitter%20NLP%20EDA_17_0.png)
 
 
 
@@ -431,7 +431,7 @@ plt.show()
 ```
 
 
-![png](Twitter%20NLP%20EDA_files/Twitter%20NLP%20EDA_18_0.png)
+![png](/assets/images/Twitter_NLP/Twitter%20NLP%20EDA_18_0.png)
 
 
 ## Correlation Table
@@ -463,7 +463,7 @@ sns.heatmap(corr, mask=mask, cmap=cmap,  center=0,
 ```
 
 
-![png](Twitter%20NLP%20EDA_files/Twitter%20NLP%20EDA_21_0.png)
+![png](/assets/images/Twitter_NLP/Twitter%20NLP%20EDA_21_0.png)
 
 
 
@@ -473,7 +473,7 @@ ax = sns.scatterplot(x="Word_Count_raw", y="CapRatio", data=train, hue='target',
 ```
 
 
-![png](Twitter%20NLP%20EDA_files/Twitter%20NLP%20EDA_22_0.png)
+![png](/assets/images/Twitter_NLP/Twitter%20NLP%20EDA_22_0.png)
 
 
 ## WordCloud
@@ -504,7 +504,7 @@ plt.show()
 ```
 
 
-![png](Twitter%20NLP%20EDA_files/Twitter%20NLP%20EDA_25_0.png)
+![png](/assets/images/Twitter_NLP/Twitter%20NLP%20EDA_25_0.png)
 
 
 Similarty, we can create a wordcloud for fake tweets.
@@ -527,7 +527,7 @@ plt.show()
 ```
 
 
-![png](Twitter%20NLP%20EDA_files/Twitter%20NLP%20EDA_27_0.png)
+![png](/assets/images/Twitter_NLP/Twitter%20NLP%20EDA_27_0.png)
 
 
 We can see in the Real Tweet wordcloud, some words such as *fire, flood, storm, news, fatality* appear.
