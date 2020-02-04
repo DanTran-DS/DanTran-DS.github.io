@@ -1,5 +1,6 @@
 ---
 layout: single
+author_profile: true
 title: Real or Fake Disaster Tweets Classification - Part 1 EDA
 excerpt: "Part 1 of Real or Fake Disaster Tweets Classification using NLP with LSTM and Glove"
 tags: [Kaggle, NLP, Twitter, LSTM, GloVe, Python]

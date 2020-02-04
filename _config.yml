@@ -107,11 +107,11 @@ analytics:
 
 # Site Author
 author:
-  name             : "DT"
+  name             : "Dan Tran"
   avatar           : "/assets/images/ds-sq.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Self taught"
-  location         : "Somewhere"
-  email            : "sdfsd"
+  bio              : "Aspiring data scientist. Pursuing Master of Applied Statistic at Purdue University. "
+  location         : "Chicago"
+  email            : "dantran.chicago@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
