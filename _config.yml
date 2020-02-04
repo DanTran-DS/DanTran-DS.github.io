@@ -16,9 +16,9 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Data Science Portfolio"
+title                    : "A Data Science Portfolio"
 title_separator          : "-"
-subtitle                 : "DS"# site tagline that appears below site title in masthead
+subtitle                 : "by Dan Tran"# site tagline that appears below site title in masthead
 name                     : "Dan"
 description              : "An amazing website."
 url                      : "https://dantran-ds.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
