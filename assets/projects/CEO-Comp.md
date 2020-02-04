@@ -1,16 +1,14 @@
 ---
-
 layout: single
 author_profile: true
 title: Executives' Compensation Analysis
 excerpt: "Exploratory data analysis on the executives' compensation using SQL and plotly"
 tags: [EDA, SQL, Python, WRDS, plotly]
 comments: false
-category: blog
+category: posts
 toc: true
 header:
   teaser: /assets/images/teaser/ceo_compensation.jpg
-
 ---
 
 # Overview
