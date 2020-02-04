@@ -7,8 +7,6 @@ tags: [Kaggle, NLP, Twitter, LSTM, GloVe, Python]
 comments: true
 category: blog
 toc: true
-toc_sticky: false
-
 header:
   teaser: /assets/images/teaser/twitter.png
 ---
