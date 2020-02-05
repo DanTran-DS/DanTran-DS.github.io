@@ -1,7 +1,7 @@
 ---
 layout: single
 author_profile: true
-#classes: wide
+classes: wide
 feature_row1:
   - image_path: /assets/images/teaser/ceo_compensation.jpg
     alt: "CEO img"
@@ -19,7 +19,25 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
 
+feature_row3:
+  - image_path: /assets/images/teaser/ceo_compensation.jpg
+    alt: "CEO img"
+    title: "Executives' Compensation Analysis"
+    excerpt: "Exploratory data analysis on the executives' compensation using *SQL* and *Plotly*"
+    url: /assets/projects/CEO-Comp
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+  - image_path: /assets/images/teaser/code.jpg
+    alt: "tw img"
+    title: " Real or Fake Disaster Tweets Classification - Part 1 EDA"
+    excerpt: "Part 1 of Real or Fake Disaster Tweets Classification using *NLP* with *LSTM* and *Glove* word embeddings"
+    url: /assets/projects/Twitter-NLP-EDA
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+
 ---
+{% include feature_row id="feature_row3"%}
+
 {% include feature_row%}
 
 {% include feature_row id="feature_row1" type="left" %}
