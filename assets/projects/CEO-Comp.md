@@ -7,6 +7,7 @@ tags: [EDA, SQL, Python, WRDS, plotly]
 comments: false
 category: posts
 toc: true
+toc_sticky: true
 header:
   teaser: /assets/images/teaser/ceo_compensation.jpg
 ---
