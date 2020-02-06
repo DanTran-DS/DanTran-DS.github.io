@@ -243568,7 +243568,7 @@ HTML(racing_barchart.to_html5_video())
 
 
 
-<video width="800" height="400" controls autoplay loop>
+<video width="600" height="400" controls autoplay loop>
   <source type="video/mp4" src="data:video/mp4;base64,AAAAHGZ0eXBNNFYgAAACAGlzb21pc28yYXZjMQAAAAhmcmVlAAlLJW1kYXQAAAKtBgX//6ncRem9
 5tlIt5Ys2CDZI+7veDI2NCAtIGNvcmUgMTU4IHIyOTg0IDM3NTlmY2IgLSBILjI2NC9NUEVHLTQg
 QVZDIGNvZGVjIC0gQ29weWxlZnQgMjAwMy0yMDE5IC0gaHR0cDovL3d3dy52aWRlb2xhbi5vcmcv
