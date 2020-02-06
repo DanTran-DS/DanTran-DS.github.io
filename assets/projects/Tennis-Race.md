@@ -1,3 +1,16 @@
+---
+layout: single
+author_profile: true
+title: Top 10 Tennis Players Game Wins
+excerpt: "Using Matplotlib to create a bar chart race"
+tags: [Python]
+comments: true
+category: blog
+toc: true
+toc_sticky: true
+header:
+  teaser: /assets/images/teaser/code.jpg
+---
 
 # Introduction
 
@@ -5,11 +18,11 @@ A bar chart is useful when we want to compare of values across different subgrou
 
 Racing bar chart works best when the value is non decreasing per year, ie. population of states in US. Here, we will look at the numbers of game wins by tennis players from 1991 to 2016. The dataset is from [datahub.io](https://datahub.io/sports-data/atp-world-tour-tennis-data).
 
-To plot the chart, we will need 3 columns: year, value, and name. 
+To plot the chart, we will need 3 columns: year, value, and name.
 
 Our goal is to make something like this.
 
-![chart]('Tennis barchart 87.gif')
+![chart]('snapshot.png')
 
 
 # Data
@@ -131,7 +144,7 @@ df.head()
 
 ## Add missing years
 
-Since players only active for a duration of time, players don't have 
+Since players only active for a duration of time, players don't have
 Hence, we need to add those years to our data.
 To do that, we first need to transform the dataframe to wide form.
 
@@ -146,7 +159,7 @@ Then, fill missing values in the first year as 0 then forward fill by rows.
 ```python
 first_year = df.columns[1]
 df[first_year].fillna(0, inplace=True)
-df = df.ffill(axis = 1) 
+df = df.ffill(axis = 1)
 df.head()
 ```
 
@@ -396,7 +409,7 @@ df.head()
 
 ## Interpolation
 
-Since we only have annual data, animated plot using those will give a "jagged" motion. Hence, to smooth out the motion, we need to add values between annual values. 
+Since we only have annual data, animated plot using those will give a "jagged" motion. Hence, to smooth out the motion, we need to add values between annual values.
 
 We use **pandas.interpolate** to add more values between 2 dates and fill in values that are between those 2 dates's values. Here we use ***'M'*** or Month as **resample** method.
 i.e a player wins in 1991 is 31 and in 1992 is 72 then **pandas.interpolate** will add rows with date as 1991-1, 1991-2 ... 1991-12 and with values from 31 to 72, equally spaced.
@@ -567,8 +580,8 @@ df.head(20)
 # Bar Chart Race
 ## Plot Function
 
-To have a moving chart, we first need to plot a chart then use matplotlib animation to plot 
-The **plot_barchart** function take year as a parameter to plot 
+To have a moving chart, we first need to plot a chart then use matplotlib animation to plot
+The **plot_barchart** function take year as a parameter to plot
 
 
 
@@ -598,36 +611,36 @@ Create function to plot a bar chart for a given year.
 
 ```python
 def plot_barchart(t):
-    
+
     # Get top players for a year t
     data = df[df[time] == t].sort_values(value).tail(num_bars).copy()
     ax.clear()
-    
+
     # Set bars color and height
-    ax.barh(data[name], data[value], height = 0.8, 
+    ax.barh(data[name], data[value], height = 0.8,
             color = [bar_colors[x] for x in data[name]])
-    
+
     # Plot bars and lables
     dx = float(data[value].max()) / 200
     for i, (v, n) in enumerate(zip(data[value], data[name])):
         ax.text(v + dx, i + (num_bars / 50), '    ' + n,
                 size = 10, weight = 'bold', ha = 'left', va = 'center')
-        ax.text(v + dx, i - (num_bars / 50), f'    {v:,.0f}', 
+        ax.text(v + dx, i - (num_bars / 50), f'    {v:,.0f}',
                 size = 12, ha = 'left', va = 'center')
 
 
     # Title
-    ax.text(-0.005, 1.14, g_Title, transform = ax.transAxes, 
-            size = 35, weight = 'bold', ha = 'left', 
+    ax.text(-0.005, 1.14, g_Title, transform = ax.transAxes,
+            size = 35, weight = 'bold', ha = 'left',
             fontdict = {'fontname': 'Cambria'})
-    
+
     # Display Year
-    timer = re.sub(r'\-(.*)', r'', str(t)) 
+    timer = re.sub(r'\-(.*)', r'', str(t))
     ax.text(1.0, 0.2, timer, transform = ax.transAxes, color = '#555555',
             size = 40, ha='right', weight = 'bold')
 
     # Format Axes
-    ax.text(-0.005, 1.06, g_xaxis, transform = ax.transAxes, 
+    ax.text(-0.005, 1.06, g_xaxis, transform = ax.transAxes,
             size = 15, color = '#888888')
     ax.xaxis.set_major_formatter(ticker.StrMethodFormatter('{x:,.0f}'))
     ax.xaxis.set_ticks_position('top')
@@ -638,11 +651,11 @@ def plot_barchart(t):
     ax.grid(which = 'major', axis = 'x', linestyle = '-')
 
     # Add Credit
-    ax.text(1, 0, 'from dantran-ds.github.io', transform=ax.transAxes, 
+    ax.text(1, 0, 'from dantran-ds.github.io', transform=ax.transAxes,
             ha='right', color='#888888')
 
     plt.locator_params(axis = 'x', nbins = 5)
-    plt.subplots_adjust(left = 0.075, right = 0.75, top = 0.8, 
+    plt.subplots_adjust(left = 0.075, right = 0.75, top = 0.8,
                         bottom = 0.05, wspace = 0.25, hspace = 0.25)
     plt.box(False)
 
@@ -868,7 +881,7 @@ css/font-awesome.min.css">
     var slider_id = "_anim_slider26d3607ecf5d46e8a073f29951699119";
     var loop_select_id = "_anim_loop_select26d3607ecf5d46e8a073f29951699119";
     var frames = new Array(301);
-    
+
   frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABIAAAAJACAYAAAD1kB3UAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz\
 AAALEgAACxIB0t1+/AAAADl0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uIDMuMC4yLCBo\
 dHRwOi8vbWF0cGxvdGxpYi5vcmcvOIA7rQAAIABJREFUeJzs3XdYFNf+P/D3Lktv0qWLqFRLLGCC\
@@ -254328,4 +254341,3 @@ racing_barchart.save(f'Tennis barchart.gif', writer = 'imagemagick', fps=5);
 
 
 ![png](output_40_0.png)
-
