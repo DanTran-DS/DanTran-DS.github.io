@@ -844,7 +844,7 @@ css/font-awesome.min.css">
     <br>
     <input id="_anim_slider26d3607ecf5d46e8a073f29951699119" type="range" style="width:350px"
            name="points" min="0" max="1" step="1" value="0"
-           onchange="anim26d3607ecf5d46e8a073f29951699119.set_frame(parseInt(this.value));"></input>
+           onchange="anim26d3607ecf5d46e8a073f29951699119.set_frame(parseInt(this.value));">
     <br>
     <button onclick="anim26d3607ecf5d46e8a073f29951699119.slower()"><i class="fa fa-minus"></i></button>
     <button onclick="anim26d3607ecf5d46e8a073f29951699119.first_frame()"><i class="fa fa-fast-backward">
@@ -864,11 +864,11 @@ css/font-awesome.min.css">
     <button onclick="anim26d3607ecf5d46e8a073f29951699119.faster()"><i class="fa fa-plus"></i></button>
   <form action="#n" name="_anim_loop_select26d3607ecf5d46e8a073f29951699119" class="anim_control">
     <input type="radio" name="state"
-           value="once" > Once </input>
+           value="once" > Once
     <input type="radio" name="state"
-           value="loop" checked> Loop </input>
+           value="loop" checked> Loop
     <input type="radio" name="state"
-           value="reflect" > Reflect </input>
+           value="reflect" > Reflect
   </form>
 </div>
 
