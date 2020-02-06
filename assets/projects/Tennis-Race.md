@@ -22,7 +22,7 @@ To plot the chart, we will need 3 columns: year, value, and name.
 
 Our goal is to make something like this.
 
-![chart]('snapshot.png')
+![chart](/assets/images/Tennis_Race/snapshot.png)
 
 
 # Data
@@ -243557,7 +243557,6 @@ AAAAANg4AiAAAAAAAAAbRwAEAAAAAABg4wiAAAAAAAAAbNz/A8CEg3W6rYWXAAAAAElFTkSuQmCC\
 
 
 
-![png](output_37_1.png)
 
 
 
@@ -243569,7 +243568,7 @@ HTML(racing_barchart.to_html5_video())
 
 
 
-<video width="1152" height="576" controls autoplay loop>
+<video width="800" height="400" controls autoplay loop>
   <source type="video/mp4" src="data:video/mp4;base64,AAAAHGZ0eXBNNFYgAAACAGlzb21pc28yYXZjMQAAAAhmcmVlAAlLJW1kYXQAAAKtBgX//6ncRem9
 5tlIt5Ys2CDZI+7veDI2NCAtIGNvcmUgMTU4IHIyOTg0IDM3NTlmY2IgLSBILjI2NC9NUEVHLTQg
 QVZDIGNvZGVjIC0gQ29weWxlZnQgMjAwMy0yMDE5IC0gaHR0cDovL3d3dy52aWRlb2xhbi5vcmcv
@@ -254329,7 +254328,6 @@ AAAAAExhdmY1OC4yOS4xMDA=
 
 
 
-![png](output_38_1.png)
 
 
 We can save the graph to mp4 or gif. Here I saved to gif using ***imagemagick*** as writer.
@@ -254338,6 +254336,3 @@ We can save the graph to mp4 or gif. Here I saved to gif using ***imagemagick***
 ```python
 racing_barchart.save(f'Tennis barchart.gif', writer = 'imagemagick', fps=5);
 ```
-
-
-![png](output_40_0.png)
