@@ -12,9 +12,14 @@ header:
   teaser: /assets/images/teaser/twitter.png
 ---
 
-# Import Datasets
 
 
+
+# Overview
+In this project, we'll look at Disaster Tweets dataset on Kaggle, perform exploratory data analysis, features engineering, and lastly build machine learning models to predict which Tweets are about real disasters and which one’s aren’t.
+
+
+## Data
 ```python
 import pandas as pd
 import numpy as np
@@ -30,10 +35,6 @@ pd.set_option('display.max_rows', 500)
 pd.set_option('display.max_columns', 500)
 pd.set_option('display.max_colwidth', 100)
 ```
-
-# Overview
-
-## Data
 
 Check size of our data
 
