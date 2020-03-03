@@ -1,3 +1,16 @@
+---
+layout: single
+author_profile: true
+title: Real or Fake Disaster Tweets Classification
+excerpt: "Part 1 of Real or Fake Disaster Tweets Classification using NLP with LSTM and Glove"
+tags: [Kaggle, NLP, Twitter, LSTM, GloVe, Python]
+comments: true
+category: blog
+toc: true
+toc_sticky: true
+header:
+  teaser: /assets/images/teaser/twitter.png
+---
 
 # Import Datasets
 
@@ -31,9 +44,9 @@ print(f'\nTest Set has {test.shape[0]} rows and {test.shape[1]} columns which ar
 ```
 
     Training Set has 7613 rows and 5 columns which are ['id' 'keyword' 'location' 'text' 'target'].
-    
+
     Test Set has 3263 rows and 4 columns which are ['id' 'keyword' 'location' 'text'].
-    
+
 
 Check Missing Values
 
@@ -50,14 +63,14 @@ print('\nTest Set % Missing Values:\n',(test.isnull().sum()*100/len(test)).sort_
     text         0.000000
     id           0.000000
     dtype: float64
-    
+
     Test Set % Missing Values:
      location    33.864542
     keyword      0.796813
     text         0.000000
     id           0.000000
     dtype: float64
-    
+
 
 Compare numbers of Real and Fake tweets in Train Set
 
@@ -76,7 +89,7 @@ plt.show()
 ```
 
 
-![png](output_12_0.png)
+![png](/assets/images/Twitter_NLP/output_12_0.png)
 
 
 ## Features
@@ -90,9 +103,9 @@ print(f'Unique values in Location:\n\t{train["location"].nunique()} over {train[
     Unique values in Location:
     	3341 over 5080 nonmissing observations in Train Set and
     	1602 over 2158 nonmissing observations in Test Set
-    
 
-Location has about 33% observations without infomation. There are too many unique values comapring to number of observation. 
+
+Location has about 33% observations without infomation. There are too many unique values comapring to number of observation.
 Since location is less likely to have correlation with real or fake disaster tweets, it is safe to remove it from the analysis.
 
 ### Keyword
@@ -105,7 +118,7 @@ print(f'Unique values in Keyword:\n\t{train["keyword"].nunique()} over {train["k
     Unique values in Keyword:
     	221 over 7552 nonmissing observations in Train Set and
     	221 over 3237 nonmissing observations in Test Set
-    
+
 
 There are 221 keywords in the Training Set. Let's see how predictive they are.
 
@@ -132,11 +145,11 @@ plt.show()
 ```
 
 
-![png](output_19_0.png)
+![png](/assets/images/Twitter_NLP/output_19_0.png)
 
 
 
-![png](output_19_1.png)
+![png](/assets/images/Twitter_NLP/output_19_1.png)
 
 
 If a tweet has a keyword like __*debris, wreckage, derailment*__, it is highly to be a Real tweet.
@@ -151,14 +164,14 @@ We will use **NLTK** and **Re** for cleaning the tweets and create some features
 
 ```python
 # Import NLTK package and Regex for cleaning
-from nltk.corpus import stopwords 
+from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize, sent_tokenize
-from nltk.stem import WordNetLemmatizer 
+from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import wordpunct_tokenize
 import re
-  
+
 lemmatizer = WordNetLemmatizer().lemmatize   
-stop_words = set(stopwords.words('english')) 
+stop_words = set(stopwords.words('english'))
 ```
 
 First, we need to create some functions to do the tasks.
@@ -201,7 +214,7 @@ def addFeatures(data):
     df['CapRatio']=df['text'].map(lambda x: len(re.findall(r'[A-Z]', x))) / df['Char_Count_raw']
     df[['hasTag','hashtags','tags_count']] = df['text'].apply(lambda x: pd.Series(findkeyword('#',x)))
     df[['hasMention','mentions','mention_count']] = df['text'].apply(lambda x: pd.Series(findkeyword('@',x)))
-    
+
     return df
 ```
 
@@ -224,23 +237,23 @@ for i in np.random.randint(train.shape[0], size=5):
 
     Raw: @CorleoneDaBoss there isn't anything there its desolate bc of its nature. The significance is that we were the first country to do it.
     Cleaned: anything desolate bc nature significance first country
-    
+
     Raw: [Question] Is anybody else having this problem with the '7' circle in Epicentre? http://t.co/dsPWS6hJ8w.
     Cleaned: question anybody else problem circle epicentre
-    
-    Raw: MP trains derailment: Û÷ItÛªs the freakiest of freak accidentsÛª: 
-    
+
+    Raw: MP trains derailment: Û÷ItÛªs the freakiest of freak accidentsÛª:
+
     MP trains derailment: Û÷ItÛªs the freakiest of ... http://t.co/uHXODSc7Wi.
     Cleaned: mp train derailment freakiest freak accident mp train derailment freakiest
-    
+
     Raw: Roger Goodell's Fatal Mistake: Tom Brady An Innocent Man http://t.co/UCNcKrnLow.
     Cleaned: roger goodell fatal mistake tom brady innocent man
-    
+
     Raw: #INCIDENT
     Crash in Pascoe Vale South outbound on Tullamarine Fwy (CityLink) near Moreland Rd. Vehicles off in emergency lane. No delays..
     Cleaned: incident crash pascoe vale south outbound tullamarine fwy ( citylink ) near moreland rd vehicle emergency lane delay
-    
-    
+
+
 
 ## Readability
 
@@ -293,7 +306,7 @@ ax.set_title("Readability for each class", fontsize=15);
 ```
 
 
-![png](output_40_0.png)
+![png](/assets/images/Twitter_NLP/output_40_0.png)
 
 
 From the plot, the real tweets have a litte bit higer means of readability. They have similar distribution. 9 is the highest frequency in both groups, but for values larger than 9,Real tweets have higher frequentcies.
@@ -311,7 +324,7 @@ ax = sns.scatterplot(x="Word_Count_raw", y="readability", data=train_sample,  hu
 ```
 
 
-![png](output_43_0.png)
+![png](/assets/images/Twitter_NLP/output_43_0.png)
 
 
 # EDA
@@ -324,7 +337,7 @@ fig.map(plt.hist, "Word_Count_raw", bins=30);
 ```
 
 
-![png](output_45_0.png)
+![png](/assets/images/Twitter_NLP/output_45_0.png)
 
 
 With the histograms we can see the shape of number of words's distribution but it's difficult to compare between real and fake distribuions. Hence, we can plot boxplots to make the comparisons.
@@ -344,20 +357,20 @@ ax[2].set_title("Ratio of capital letters in each class", fontsize=15);
 ```
 
 
-![png](output_47_0.png)
+![png](/assets/images/Twitter_NLP/output_47_0.png)
 
 
-From boxplos above, we can see that number of words and ratio of capital letter in Real and Fake tweets are similar. 
+From boxplos above, we can see that number of words and ratio of capital letter in Real and Fake tweets are similar.
 The number of letters in Real tweets are litter bit higher than Fake's.
 
 ## Correlation Table
 
 We can create a corrlation table then use **Seaborn HeatMap** to graph it.
-Based on the heatmap, we can see that *Char_Count_raw* which is the number of letter in original tweets is higly correlated with word count and sentence count. 
+Based on the heatmap, we can see that *Char_Count_raw* which is the number of letter in original tweets is higly correlated with word count and sentence count.
 
 
 ```python
-num_cols = ['target','Char_Count_raw', 'Word_Count_raw', 'Sent_Count_raw', 'Char_Count', 
+num_cols = ['target','Char_Count_raw', 'Word_Count_raw', 'Sent_Count_raw', 'Char_Count',
             'Word_Count', 'Sent_Count', 'CapRatio', 'tags_count',  'mention_count']
 
 # Compute the correlation matrix
@@ -379,10 +392,10 @@ sns.heatmap(corr, mask=mask, cmap=cmap,  center=0,
 ```
 
 
-![png](output_51_0.png)
+![png](/assets/images/Twitter_NLP/output_51_0.png)
 
 
-## WordCloud 
+## WordCloud
 
 Create a word cloud of our cleaned text using **wordcloud**. First, we need to merge all strings in *train['clean_text']* into one. Then, we can use wordcloud to generate a graph.
 
@@ -397,7 +410,7 @@ faketw = train[train['target']==0]
 text = ' '.join(realtw['clean_text'].values.tolist())
 
 # Create wordcloud
-wordcloud = WordCloud(max_font_size=100, max_words=150,font_step=2, 
+wordcloud = WordCloud(max_font_size=100, max_words=150,font_step=2,
                       background_color=None, mode='RGBA',colormap ='viridis',
                       min_word_length =4, width=1200, height=600).generate(text)
 
@@ -410,7 +423,7 @@ plt.show()
 ```
 
 
-![png](output_54_0.png)
+![png](/assets/images/Twitter_NLP/output_54_0.png)
 
 
 Similarty, we can create a wordcloud for fake tweets.
@@ -420,7 +433,7 @@ Similarty, we can create a wordcloud for fake tweets.
 text = ' '.join(faketw['clean_text'].values.tolist())
 
 # Create wordcloud
-wordcloud = WordCloud(max_font_size=100, max_words=150,font_step=2, 
+wordcloud = WordCloud(max_font_size=100, max_words=150,font_step=2,
                       background_color=None, mode='RGBA',colormap ='viridis',
                       min_word_length =4, width=1200, height=600).generate(text)
 
@@ -433,7 +446,7 @@ plt.show()
 ```
 
 
-![png](output_56_0.png)
+![png](/assets/images/Twitter_NLP/output_56_0.png)
 
 
 We can see in the Real Tweet wordcloud, some words such as *fire, flood, storm, news, fatality* appear.
@@ -485,8 +498,8 @@ from sklearn.metrics import f1_score
 from sklearn.model_selection import cross_val_score
 ```
 
-Since machine learning models work with numbers, we first need to transform our text to numbers. 
-In this case, I use TF-IDF, which short for term frequency-inverse document frequency, measures relevant a word is to a document in a collection of documents (corpus). 
+Since machine learning models work with numbers, we first need to transform our text to numbers.
+In this case, I use TF-IDF, which short for term frequency-inverse document frequency, measures relevant a word is to a document in a collection of documents (corpus).
 It multiplies two metrics: frequency of a word in a document, and the inverse document frequency of the word in a corpus.
 
 
@@ -534,7 +547,7 @@ print("Ridge model's F1 Score:", cross_val_score(ridge_clf, X_train_tfidf, y_tra
 
     Lasso model's F1 Score: [0.57788347 0.61556604 0.60071514 0.56834532 0.6013986 ]
     Ridge model's F1 Score: [0.6737338  0.7309417  0.7208238  0.69756663 0.66823529]
-    
+
 
 We can see that the ridge regression return higher F1 score comparing to Lasso. Let's fit the ridge model on whole training set and see how well it performs on validation data.
 
@@ -568,7 +581,7 @@ embedding_dim = 100      # embedding dimensions for GloVe
 glove_data = "../input/glove-global-vectors-for-word-representation/glove.twitter.27B."+str(embedding_dim)+"d.txt"
 ```
 
-Import **tensorflow** tools for preprocessing and create word vector.. 
+Import **tensorflow** tools for preprocessing and create word vector..
 
 We tokenize all tweets in training using the *fit_on_texts()* with a tokenizer with vocabulary size(*vocab_size*) 100000, and out of vocab token(*oov_token*) 'oov'.
 
@@ -613,7 +626,7 @@ print('Shape of validation label tensor:', y_valid.shape)
     Shape of train label tensor: (6090,)
     Shape of validation set tensor: (1523, 200)
     Shape of validation label tensor: (1523,)
-    
+
 
 Load Glove from txt file and process Embedding Matrix
 
@@ -638,7 +651,7 @@ print("Done!")
 ```
 
     Done!
-    
+
 
 Since F1 score is not supported in model.compile, we need to create F1 score function for model metric which is based on old keras source code.
 
@@ -646,7 +659,7 @@ Since F1 score is not supported in model.compile, we need to create F1 score fun
 ```python
 import keras.backend as K
 
-def f1_score_keras(y_true, y_pred): 
+def f1_score_keras(y_true, y_pred):
     true_positives = K.sum(K.round(K.clip(y_true * y_pred, 0, 1)))
     possible_positives = K.sum(K.round(K.clip(y_true, 0, 1)))
     predicted_positives = K.sum(K.round(K.clip(y_pred, 0, 1)))
@@ -657,7 +670,7 @@ def f1_score_keras(y_true, y_pred):
 ```
 
     Using TensorFlow backend.
-    
+
 
 ### Train Model
 
@@ -719,7 +732,7 @@ blackbox = model.fit(X_train_padd, y_train, epochs=num_epochs, validation_data=(
     6090/6090 [==============================] - 5s 810us/sample - loss: 0.3353 - f1_score_keras: 0.8069 - accuracy: 0.8524 - val_loss: 0.4863 - val_f1_score_keras: 0.7290 - val_accuracy: 0.7971
     Epoch 10/10
     6090/6090 [==============================] - 5s 811us/sample - loss: 0.3273 - f1_score_keras: 0.8169 - accuracy: 0.8604 - val_loss: 0.4912 - val_f1_score_keras: 0.7418 - val_accuracy: 0.8024
-    
+
 
 ### Model Validation
 
@@ -818,7 +831,7 @@ plt.xlabel('epoch');
 ```
 
 
-![png](output_97_0.png)
+![png](/assets/images/Twitter_NLP/output_97_0.png)
 
 
 First, we can see that loss on training set decrease as number of epoch increase while loss on validation set decrease then increase. This is a sign of overfitting.
@@ -829,7 +842,7 @@ Nevertheless, let's see how our model performs.
 
 
 ```python
-pred = model.predict_classes(X_valid_padd) 
+pred = model.predict_classes(X_valid_padd)
 f1_score(y_valid, pred)
 ```
 
