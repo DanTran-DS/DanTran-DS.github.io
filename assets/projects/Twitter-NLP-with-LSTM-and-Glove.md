@@ -93,7 +93,7 @@ plt.show()
 
 
 ## Features
-### Location
+**Location**
 
 
 ```python
@@ -108,7 +108,7 @@ print(f'Unique values in Location:\n\t{train["location"].nunique()} over {train[
 Location has about 33% observations without infomation. There are too many unique values comapring to number of observation.
 Since location is less likely to have correlation with real or fake disaster tweets, it is safe to remove it from the analysis.
 
-### Keyword
+**Keyword**
 
 
 ```python
@@ -218,7 +218,6 @@ def addFeatures(data):
     return df
 ```
 
-## Tweets length, tags
 
 Apply our changes to the Train Set then print the first 5 rows.
 
@@ -328,8 +327,6 @@ ax = sns.scatterplot(x="Word_Count_raw", y="readability", data=train_sample,  hu
 
 
 # EDA
-## Basic
-
 
 ```python
 fig = sns.FacetGrid(train, col="target")
