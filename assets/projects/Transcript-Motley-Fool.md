@@ -21,7 +21,8 @@ In this project, we will perform following tasks:
 + Retrieve firm stock price return on the day of the earnings call
 + EDA
 
-This is for educational purposes only, please scrape responsibly.{: .notice--danger}
+This is for educational purposes only, please scrape responsibly.
+{: .notice--danger}
 
 Install the required libraries
 
