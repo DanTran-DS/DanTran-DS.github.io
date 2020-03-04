@@ -34,7 +34,6 @@ from bs4 import BeautifulSoup
 import unicodedata
 import pandas as pd
 import numpy as np
-#from scraper_api import ScraperAPIClient
 ```
 
 # Data Mining
@@ -58,7 +57,9 @@ The urls to conference call transcripts are located on https://www.fool.com/earn
 If we right click on a tiltl(i.e.) and click Inspect, we see where the link for each transcript are.
 
 ```HTML
-<a href="/earnings/call-transcripts/2019/11/27/cellcom-israel-ltd-cel-q3-2019-earnings-call-trans.aspx" data-id="article-list-hl">Cellcom Israel Ltd (CEL) Q3 2019 Earnings Call Transcript</a>
+<a href="/earnings/call-transcripts/2019/11/27/cellcom-israel-ltd-cel-q3-2019-earnings-call-trans.aspx"
+  data-id="article-list-hl">
+  Cellcom Israel Ltd (CEL) Q3 2019 Earnings Call Transcript</a>
 ```
 
 We loop through pages to get transcripts url. We can specify what page to start  (*start_pg*) and how many pages we want to look at (*num_pg*).
@@ -914,22 +915,9 @@ To get the stock price, we will use **yfinance** package which retrieve prices f
 
 
 ```python
-!pip install yfinance --upgrade --no-cache-dir
+# Install yfinance if you haven't
+#!pip install yfinance --upgrade --no-cache-dir
 ```
-
-    Requirement already up-to-date: yfinance in /opt/conda/lib/python3.6/site-packages (0.1.54)
-    Requirement already satisfied, skipping upgrade: multitasking>=0.0.7 in /opt/conda/lib/python3.6/site-packages (from yfinance) (0.0.9)
-    Requirement already satisfied, skipping upgrade: requests>=2.20 in /opt/conda/lib/python3.6/site-packages (from yfinance) (2.22.0)
-    Requirement already satisfied, skipping upgrade: pandas>=0.24 in /opt/conda/lib/python3.6/site-packages (from yfinance) (0.25.3)
-    Requirement already satisfied, skipping upgrade: numpy>=1.15 in /opt/conda/lib/python3.6/site-packages (from yfinance) (1.18.1)
-    Requirement already satisfied, skipping upgrade: idna<2.9,>=2.5 in /opt/conda/lib/python3.6/site-packages (from requests>=2.20->yfinance) (2.8)
-    Requirement already satisfied, skipping upgrade: certifi>=2017.4.17 in /opt/conda/lib/python3.6/site-packages (from requests>=2.20->yfinance) (2019.11.28)
-    Requirement already satisfied, skipping upgrade: chardet<3.1.0,>=3.0.2 in /opt/conda/lib/python3.6/site-packages (from requests>=2.20->yfinance) (3.0.4)
-    Requirement already satisfied, skipping upgrade: urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 in /opt/conda/lib/python3.6/site-packages (from requests>=2.20->yfinance) (1.25.8)
-    Requirement already satisfied, skipping upgrade: python-dateutil>=2.6.1 in /opt/conda/lib/python3.6/site-packages (from pandas>=0.24->yfinance) (2.8.1)
-    Requirement already satisfied, skipping upgrade: pytz>=2017.2 in /opt/conda/lib/python3.6/site-packages (from pandas>=0.24->yfinance) (2019.3)
-    Requirement already satisfied, skipping upgrade: six>=1.5 in /opt/conda/lib/python3.6/site-packages (from python-dateutil>=2.6.1->pandas>=0.24->yfinance) (1.14.0)
-
 
 
 ```python
@@ -939,7 +927,7 @@ import datetime as dt
 
 We need 3 arguments to get the stock price: stock ticker, start date, and end date. The `yf.download` will return a dataframe with *open, high, low, close* stock price for a day.
 
-We calculate return as $\frac{Price_{Close} - Price_{Open}}{Price_{Open}}$
+We calculate return as $\\frac{Price_{Close} - Price_{Open}}{Price_{Open}}$
 
 
 ```python
