@@ -51,10 +51,34 @@ feature_row_top2:
     btn_label: "Read More"
     btn_class: "btn--primary"
 
----
-{% include feature_row id="feature_row_top1"  type="left"%}
+feature_row_top3:
+  - image_path: /assets/images/ceo_comp/fig5.png
+    alt: "CEO img"
+    title: "Executives' Compensation Analysis"
+    excerpt: "Exploratory data analysis on the executives' compensation using *SQL* and *Plotly*"
+    url: /assets/projects/CEO-Comp
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+  - image_path: 'assets/images/teaser/code.jpg'
+    alt: "tw img"
+    title: " Data Mining - Earnings Call Transcripts"
+    excerpt: "Retrieve transcript from fool.com. Separate by speaker. NLP. EDA"
+    url: /assets/projects/Transcript-Motley-Fool
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+  - image_path: /assets/images/Tennis_Race/snapshot.png
+    alt: "code img"
+    title: " Top 10 Tennis Players Game Wins"
+    excerpt: "Using Matplotlib to create a bar chart race"
+    url: /assets/projects/Tennis-Race
+    btn_label: "Read More"
+    btn_class: "btn--primary"
 
-{% include feature_row%}
+---
+
+{% include feature_row id="feature_row_top3" type="center" %}
+
+{% include feature_row id="feature_row_top1"  type="left"%}
 
 {% include feature_row id="feature_row_top2"  type="left"%}
 
