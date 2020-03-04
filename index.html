@@ -19,14 +19,7 @@ feature_row2:
     btn_label: "Read More"
     btn_class: "btn--primary"
 
-feature_row3:
-  - image_path: /assets/images/ceo_comp/fig5.png
-    alt: "CEO img"
-    title: "Executives' Compensation Analysis"
-    excerpt: "Exploratory data analysis on the executives' compensation using *SQL* and *Plotly*"
-    url: /assets/projects/CEO-Comp
-    btn_label: "Read More"
-    btn_class: "btn--primary"
+feature_row_top1:
   - image_path: 'assets/images/Twitter_NLP/Twitter NLP EDA_27_0.png'
     alt: "tw img"
     title: " Real or Fake Disaster Tweets Classification - Part 1 EDA"
@@ -42,11 +35,28 @@ feature_row3:
     btn_label: "Read More"
     btn_class: "btn--primary"
 
+feature_row_top2:
+  - image_path: /assets/images/ceo_comp/fig5.png
+    alt: "CEO img"
+    title: "Executives' Compensation Analysis"
+    excerpt: "Exploratory data analysis on the executives' compensation using *SQL* and *Plotly*"
+    url: /assets/projects/CEO-Comp
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+  - image_path: 'assets/images/teaser/code.jpg'
+    alt: "tw img"
+    title: " Data Mining - Earnings Call Transcripts"
+    excerpt: "Retrieve transcript from fool.com. Separate by speaker. NLP. EDA"
+    url: /assets/projects/Transcript-Motley-Fool
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+
 ---
-{% include feature_row id="feature_row3"%}
+{% include feature_row id="feature_row_top1"%}
 
 {% include feature_row%}
 
+{% include feature_row id="feature_row_top2"%}
 
 
 <!--

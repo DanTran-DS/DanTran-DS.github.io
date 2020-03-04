@@ -106,7 +106,7 @@ print(f'Unique values in Location:\n\t{train["location"].nunique()} over {train[
     	1602 over 2158 nonmissing observations in Test Set
 
 
-Location has about 33% observations without infomation. There are too many unique values comapring to number of observation.
+Location has about 33% observations without information. There are too many unique values comparing to number of observation.
 Since location is less likely to have correlation with real or fake disaster tweets, it is safe to remove it from the analysis.
 
 **Keyword**
@@ -176,8 +176,8 @@ stop_words = set(stopwords.words('english'))
 ```
 
 First, we need to create some functions to do the tasks.
-* *findkeyword* to find inputted charactor ( i.e #, @) in text then return 3 values: True if found the key, string after the key, number of key in text.
-* *clean_text* to remove stopwords, links, mentions from tweets
+* *findkeyword* to find inputted character ( i.e. #, @) in text then return 3 values: True if found the key, string after the key, number of key in text.
+* *clean_text* to remove stop words, links, mentions from tweets
 * *addFeatures* create additional features from tweets such as word count, sentence count, ratio of capital letters.
 
 
@@ -259,7 +259,7 @@ for i in np.random.randint(train.shape[0], size=5):
 
 We can also measure the readability of tweets. Readability is the ease with which a reader can understand a written text. There are several ways to measure it such as Fog Index, Flesch–Kincaid, Dale–Chall, McLaughlin’s SMOG. However,  I only use Fog Index as an example. Other methods are also in the **textstat** library.
 
-Accoring to [Wikipedia](https://en.wikipedia.org/wiki/Gunning_fog_index):
+According to [Wikipedia](https://en.wikipedia.org/wiki/Gunning_fog_index):
 > Fog index estimates the years of formal education a person needs to understand the text on the first reading. For instance, a fog index of 12 requires the reading level of a United States high school senior (around 18 years old). The test was developed in 1952 by Robert Gunning, an American businessman who had been involved in newspaper and textbook publishing
 
 | Fog Index | Reading level by grade |
@@ -309,7 +309,7 @@ ax.set_title("Readability for each class", fontsize=15);
 ![png](/assets/images/Twitter_NLP/output_40_0.png)
 
 
-From the plot, the real tweets have a litte bit higer means of readability. They have similar distribution. 9 is the highest frequency in both groups, but for values larger than 9,Real tweets have higher frequentcies.
+From the plot, the real tweets have a little bit higher means of readability. They have similar distribution. 9 is the highest frequency in both groups, but for values larger than 9,Real tweets have higher frequencies.
 
 Readability's values over 20 are potential outliers since 20 equivalent to master graduate. It's difficult to believe that a tweet need PhD level reading skill to understand.
 
@@ -338,7 +338,7 @@ fig.map(plt.hist, "Word_Count_raw", bins=30);
 ![png](/assets/images/Twitter_NLP/output_45_0.png)
 
 
-With the histograms we can see the shape of number of words's distribution but it's difficult to compare between real and fake distribuions. Hence, we can plot boxplots to make the comparisons.
+With the histograms we can see the shape of number of words' distribution but it's difficult to compare between real and fake distributions. Hence, we can plot boxplots to make the comparisons.
 
 
 ```python
@@ -358,13 +358,13 @@ ax[2].set_title("Ratio of capital letters in each class", fontsize=15);
 ![png](/assets/images/Twitter_NLP/output_47_0.png)
 
 
-From boxplos above, we can see that number of words and ratio of capital letter in Real and Fake tweets are similar.
+From boxplots above, we can see that number of words and ratio of capital letter in Real and Fake tweets are similar.
 The number of letters in Real tweets are litter bit higher than Fake's.
 
 ## Correlation Table
 
-We can create a corrlation table then use **Seaborn HeatMap** to graph it.
-Based on the heatmap, we can see that *Char_Count_raw* which is the number of letter in original tweets is higly correlated with word count and sentence count.
+We can create a correlation table then use **Seaborn HeatMap** to graph it.
+Based on the heatmap, we can see that *Char_Count_raw* which is the number of letter in original tweets is highly correlated with word count and sentence count.
 
 
 ```python
@@ -424,7 +424,7 @@ plt.show()
 ![png](/assets/images/Twitter_NLP/output_54_0.png)
 
 
-Similarty, we can create a wordcloud for fake tweets.
+Similarly, we can create a wordcloud for fake tweets.
 
 
 ```python
@@ -455,7 +455,7 @@ We can see in the Real Tweet wordcloud, some words such as *fire, flood, storm, 
 In this second part, we will build a classification model using Logistic Regression and Recurrent Neural Net(RNN) with Long short-term memory(LSTM) and Glove.
 However, we need to transform our data so we can feed it to our models.
 
-Below function is used to transform a dataset to usable format. It drops irrelevant columns, apply the clean_text function to the text column, seperate feature and label columns then return features and label dataframes.
+Below function is used to transform a dataset to usable format. It drops irrelevant columns, apply the clean_text function to the text column, separate feature and label columns then return features and label dataframes.
 
 
 ```python
@@ -565,7 +565,7 @@ f1_score(y_valid, pred_ridge)
 
 ## RNN
 
-Let's use Recurrent Neural Network to see if it perform better in the classication task.
+Let's use Recurrent Neural Network to see if it perform better in the classification task.
 
 ### Preprocessing
 
@@ -585,7 +585,7 @@ We tokenize all tweets in training using the *fit_on_texts()* with a tokenizer w
 
 Then we use *text_to_sequences()* to encode tweets in the numeric format.
 
-We transform all inputs into a same length because the inputs have different length so to put a batch in the RNN. We apply the padding to the end of the sequence by specify *padding_type='post'*. Futhermore, we also need to trim long inputs by removing extra words from the end of the sequences  by using *trunc_type='post'*.
+We transform all inputs into a same length because the inputs have different length so to put a batch in the RNN. We apply the padding to the end of the sequence by specify *padding_type='post'*. Furthermore, we also need to trim long inputs by removing extra words from the end of the sequences  by using *trunc_type='post'*.
 
 
 
@@ -851,9 +851,4 @@ f1_score(y_valid, pred)
 
 
 
-Compare to Ridge regression, RNN model performs better but only by a small amount. Since we can see that the RNN is overfitted, after modifing the model, we can expect the RNN will be better significantly. The next part of this project will be on improving the RNN and optimize hyperparameters using Bayesian Optimization.
-
-
-```python
-
-```
+Compare to Ridge regression, RNN model performs better but only by a small amount. Since we can see that the RNN is overfitted, after modifying the model, we can expect the RNN will be better significantly. The next part of this project will be on improving the RNN and optimize hyperparameters using Bayesian Optimization.
