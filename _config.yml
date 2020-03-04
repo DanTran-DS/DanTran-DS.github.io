@@ -109,7 +109,7 @@ analytics:
 author:
   name             : "Dan Tran"
   avatar           : "/assets/images/ds-sq.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Aspiring data scientist.<br/>Pursuing a Master's degree in Applied Statistic at Purdue University. Seeking Data related position"
+  bio              : "Aspiring data scientist.<br/>Pursuing a Master's degree in Applied Statistic at Purdue University.\nSeeking Data related position"
   location         : "Chicago"
   email            : "dantran.chicago@gmail.com"
   links:
