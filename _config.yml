@@ -116,7 +116,6 @@ author:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       # url: mailto:your.name@email.com
-
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       # url: "https://twitter.com/"
@@ -131,7 +130,7 @@ author:
       # url: "https://instagram.com/"
     - label: "Gaming Web App"
         icon: "fas fa-fw fa-link"
-         url: "https://e7gears.herokuapp.com"
+        url: "https://e7gears.herokuapp.com"
 
 # Site Footer
 footer:
