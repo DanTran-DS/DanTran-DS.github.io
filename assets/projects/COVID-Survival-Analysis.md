@@ -1,3 +1,16 @@
+---
+layout: single
+author_profile: true
+title: " Survival Analysis - Days to lockdown"
+excerpt: "Investigate county-level factors that affect the days it take for counties to lockdown"
+tags: [R, Statistics, Survival Analysis, COVID 19]
+comments: true
+toc: true
+toc_sticky: true
+header:
+  teaser: /assets/images/teaser/covid-19.jpg
+---
+
 Coronavirus disease 2019 (COVID-19) is an infectious disease caused by
 severe acute respiratory syndrome coronavirus 2. It was first identified
 in December 2019 in Wuhan, and has since spread globally, resulting in
