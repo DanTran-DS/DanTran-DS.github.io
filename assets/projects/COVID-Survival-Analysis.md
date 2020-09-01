@@ -38,7 +38,6 @@ require(tidyverse)
 require(ggplot2)
 require(ggrepel)
 require(zoo)
-require(ggstatsplot)
 ```
 
 ``` r
@@ -165,7 +164,7 @@ ggplot(data,
   theme_classic()
 ```
 
-![](/assets/images//assets/images/COVID-Survival-Analysis_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](/assets/images/COVID-Survival-Analysis_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 ### Test or trace vs days
 
@@ -182,10 +181,6 @@ ggplot(data,
                   aes(label = Country)) +
   theme_classic()
 ```
-
-    ## Warning: Removed 40 rows containing missing values (geom_point).
-
-    ## Warning: Removed 3 rows containing missing values (geom_text_repel).
 
 ![](/assets/images/COVID-Survival-Analysis_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
@@ -213,8 +208,6 @@ ggplot(data, mapping = aes(days_to_lockdown, life, color = region)) +
   theme_classic()
 ```
 
-    ## Warning: Removed 1 rows containing missing values (geom_point).
-
 ![](/assets/images/COVID-Survival-Analysis_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 
 ### GDP vs days
@@ -238,8 +231,6 @@ ggplot(data, mapping = aes(days_to_lockdown, log(GDP), color = region)) +
   geom_text_repel(data = countries_gdp, aes(label = Country)) +
   theme_classic()
 ```
-
-    ## Warning: Removed 3 rows containing missing values (geom_point).
 
 ![](/assets/images/COVID-Survival-Analysis_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
