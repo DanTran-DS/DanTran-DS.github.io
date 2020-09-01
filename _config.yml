@@ -129,8 +129,8 @@ author:
       icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"
     - label: "Gaming Web App"
-        icon: "fas fa-fw fa-link"
-        url: "https://e7gears.herokuapp.com"
+      icon: "fas fa-fw fa-link"
+      url: "https://e7gears.herokuapp.com"
 
 # Site Footer
 footer:
