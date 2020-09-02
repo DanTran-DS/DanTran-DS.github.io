@@ -320,18 +320,22 @@ ggcorrplot::ggcorrplot(
 
 # 3\. Survival analysis
 
-We use survival analysis here due to three reasons. + First, the
+We use survival analysis here due to three reasons. 
+1. First, the
 response variable, days\_to\_lockdown, is a non-negative discrete
 variable. It represents the time from an origin, date of the first
-positive COVID, to an event, date of lockdown. + Second, the event in
+positive COVID, to an event, date of lockdown. 
+2. Second, the event in
 some countries were not observed. These countries might have the event
 after our trial period (Jan 22 to April 15). Thus, we will need to
-censor those. + Lastly, survival analysis which focuses on the time
+censor those.
+3. Lastly, survival analysis which focuses on the time
 until occurrence of an event will allow us to understand country’s
 characteristics that affect its time to lockdown.
 
-R packages: + survival for computing survival analyses + survminer for
-visualizing survival analysis results
+R packages:
+- *survival* for computing survival analyses
+- *survminer* for visualizing survival analysis results
 
 ## 3.1 Univariate Models
 
@@ -655,10 +659,11 @@ summary(final.mod)
 
 In this section, we will undertake model diagnostics to check the model
 assumptions and other modeling issues. We access the validity of our
-model by + (1) using Schoenfeld residuals for each covariate, vs Time or
-log(Time) to check proportional hazards assumption, + (2) plotting
-deviance residuals vs Observation number to check for outliers, + (3)
-plotting martingale residuals vs continuous covariates to check their
+model by 
+1. using Schoenfeld residuals for each covariate, vs Time or
+log(Time) to check proportional hazards assumption,
+2. plotting deviance residuals vs Observation number to check for outliers,
+3. plotting martingale residuals vs continuous covariates to check their
 functional form and ensure linearity assumption is not violated.
 
 ## 4.1 Proportional hazards assumption
