@@ -159,7 +159,7 @@ countries_of_interest <-
 
 ## 2.1 Scatter Plots
 
-### Cases vs days
+**Cases vs days**
 
 This plot is reasonnable since the the cases should increase as time
 goes by.
@@ -179,7 +179,7 @@ ggplot(data,
 
 ![](/assets/images/COVID-Survival-Analysis_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
-### Test or trace vs days
+**Test or trace vs days**
 
 ``` r
 ggplot(data,
@@ -197,7 +197,7 @@ ggplot(data,
 
 ![](/assets/images/COVID-Survival-Analysis_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
-### Life vs days
+**Life vs days**
 
 The plot indicates country with higher life exeptanacy tend to lockdown
 late.
@@ -223,7 +223,7 @@ ggplot(data, mapping = aes(days_to_lockdown, life, color = region)) +
 
 ![](/assets/images/COVID-Survival-Analysis_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 
-### GDP vs days
+**GDP vs days**
 
 Here, high GDP countries are late to response. Maybe they are more
 confident on their ability to deal with the disease or just don’t want
@@ -249,7 +249,7 @@ ggplot(data, mapping = aes(days_to_lockdown, log(GDP), color = region)) +
 
 ## 2.2 Boxplots
 
-### days by region
+**days by region**
 
 Boxplot of regions indicates that Asian countries has a higher median
 days\_to\_lockdown than the rest.
@@ -264,7 +264,7 @@ ggplot(data, aes(y = days_to_lockdown,  fill = region)) +
 
 ## 2.3 Histogram
 
-### Days to lockdown
+**Days to lockdown**
 
 Counts of countries firstly show a broad peak at relatively small
 days\_to\_lockdown, then represent a tail at large days\_to\_lockdown.
@@ -280,7 +280,7 @@ ggplot(data, aes(x = days_to_lockdown)) + geom_histogram(colour = "black", fill 
 
 ![](/assets/images/COVID-Survival-Analysis_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
 
-### Population
+**Population**
 
 ``` r
 ggplot(data, aes(x = log(population))) + geom_histogram(binwidth = 1,
