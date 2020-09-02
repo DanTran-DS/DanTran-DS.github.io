@@ -30,12 +30,16 @@ and trace affect time to lockdown.
 
 ## Overview
 
-The data were from following sources: + COVID-19 dataset from Johns
-Hopkins School of Public Healthy + Lockdown data from Aura Vision which
-provides quarantine timelines and durations for countries. + Country
+The data were from following sources: 
+- COVID-19 dataset from Johns
+Hopkins School of Public Healthy 
+- Lockdown data from Aura Vision which
+provides quarantine timelines and durations for countries. 
+- Country
 characteristics from CIA factbook.The World Factbook provides
 information on the people, society, economy, geography, and
-transportation issues for 267 world entities. + Government response
+transportation issues for 267 world entities. 
+- Government response
 tracker from Blavatnik School of Government, University of
 Oxford.Publicly available information on 17 indicators of government
 responses such as testing data and tracing data are collected.
@@ -88,17 +92,22 @@ head(
 For this analysis, seventeen variables are extracted from the databases,
 including COVID-19 data, livelihoods, economies, geographies, and
 policies for 180 countries. Definitions of some variables are explained
-as follows: + days\_to\_lockdown is our response variable. It measures
+as follows: 
+-  days\_to\_lockdown is our response variable. It measures
 the time that countries take to lockdown. It is the days from the date
-of the first case to the date of lockdown. + censor is an indicator
+of the first case to the date of lockdown. 
+- censor is an indicator
 variable which equals “0” if survival time is censored, while “1”
 indicates we observed the event. The Type 1 right censoring is adopted
 in this analysis, in which the lockdown event is observed if it occurs
-before April 15, 2020. + test equals date of coronavirus testing applied
+before April 15, 2020. 
+- test equals date of coronavirus testing applied
 minus date of the first death. This time span is calculated to evaluate
 how quickly governments start testing coronavirus during COVID-19
-spreading. + life is the life expectancy at birth, which measure time
-people in a country expected to live. + gini measures the economic
+spreading. 
+- life is the life expectancy at birth, which measure time
+people in a country expected to live. 
+- gini measures the economic
 inequality.
 
 ## Descriptive statistics
@@ -342,7 +351,7 @@ R packages:
 First, we can fit some simple models using Kaplan-Meier estimates with
 some categorical variables in our data such as region, population size.
 
-### region as a predictor
+**region as a predictor**
 
 Here, we test whether region affect the time to lockdown differently.
 The log-rank p-value of 0.0088 indicates a significant result. The
@@ -372,7 +381,7 @@ ggsurvplot(
 
 ![](/assets/images/COVID-Survival-Analysis_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
 
-### population as a predictor
+**population as a predictor**
 
 We can test whether population size affect the time to lockdown
 differently. The p-value is 0.5 which indicates that there is no
@@ -400,7 +409,7 @@ ggsurvplot(
 
 ![](/assets/images/COVID-Survival-Analysis_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
 
-### region with stratification
+**region with stratification**
 
 Here we construct a stratified log rank test to investigate the effect
 of region for each level of population size. With the stratification,
@@ -425,7 +434,7 @@ ggsurvplot(
 
 ## 3.2 Multivariate Models
 
-### Check linear assumption
+**Check linear assumption**
 
 Before fitting a model, we check the linearity of our continuous
 variables by plotting the Martingale residuals against continuous
@@ -564,7 +573,7 @@ ggforest(reduced.mod, data = data)
 
 ![](/assets/images/COVID-Survival-Analysis_files/figure-gfm/unnamed-chunk-21-1.png)<!-- -->
 
-### 3.2.3 Stepwise
+### 3.2.3 Stepwise Model
 
 After having a model by choosing variable manually, we can use step
 function to automatically find a model that give the best AIC. We can
